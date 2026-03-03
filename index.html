@@ -148,7 +148,7 @@
         .grid-item { text-align: center; display: flex; flex-direction: column; }
         .grid-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); transition: 0.4s; }
         .grid-item img:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .artist-desc { margin-top: 15px; font-weight: 700; color: var(--gold); font-size: 1rem; }
+        .artist-desc { margin-top: 15px; font-weight: 700; color: var(--gold); font-size: 1rem; line-height: 1.4; padding: 0 10px; }
 
         /* DEALERE (Lys grå) */
         .dealer-grid {
@@ -184,7 +184,7 @@
         .practical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
         .practical-item { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border); }
         .practical-item h3 { color: var(--gold); text-transform: uppercase; margin-top: 0; font-size: 1.5rem; }
-        .weather-container { border-radius: 10px; overflow: hidden; margin-top: 15px; }
+        .weather-container { border-radius: 10px; overflow: hidden; margin-top: 15px; min-height: 150px; }
 
         /* Påmelding */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
@@ -238,11 +238,11 @@
         <div class="info-row">
             <div class="image-box">
                 <img src="Boje.jpeg" alt="Boje Hoset">
-                <div class="img-caption">Boje Hoset er en av landets mest aktive tryllekunstnere.</div>
+                <div class="img-caption">Boje Hoset er kanskje en av landets mest aktive tryllekunstnere. Nå kommer han til Bergen.</div>
             </div>
             <div class="text-box">
                 <h2>Magi i Bergen</h2>
-                <p>Høsten 2026 forvandles Bergen til Norges mest magiske by. Vi inviterer til en kongress med åpne trylleshow, lukkede lectures og unike opplevelser.</p>
+                <p>Høsten 2026 forvandles Bergen til Norges mest magiske by. Vi inviterer til en kongress med åpne trylleshow, lukkede lectures og unike opplevelser. Alt med artister og lectures fra MCNs egne rekker. Vi kan se utover, men vi har mye godt internt også. Nå kan du virkelig lære noe nytt og møte andre trylleinteresserte.</p>
             </div>
         </div>
     </section>
@@ -251,7 +251,7 @@
         <div class="info-row reverse">
             <div class="image-box">
                 <img src="Kevin.jpg" alt="Kevin Lunde">
-                <div class="img-caption">Kevin Lunde leder galla-showet.</div>
+                <div class="img-caption">Kevin Lunde leder galla-showet på lørdag.</div>
             </div>
             <div class="text-box">
                 <h2>Junior-NM</h2>
@@ -275,14 +275,38 @@
     <section id="Artister">
         <h2>Artister</h2>
         <div class="image-grid">
-            <div class="grid-item"><img src="Rune.jpg" alt="Rune Carlsen"><div class="artist-desc">Rune Carlsen</div></div>
-            <div class="grid-item"><img src="toringe.jpg" alt="Tor Inge Ulveseth"><div class="artist-desc">Tor Inge Ulveseth</div></div>
-            <div class="grid-item"><img src="hedne.jpg" alt="Hednè"><div class="artist-desc">Hednè</div></div>
-            <div class="grid-item"><img src="geir.jpg" alt="Geirini"><div class="artist-desc">Geirini</div></div>
-            <div class="grid-item"><img src="john.jpg" alt="John Inge Johansen"><div class="artist-desc">John Inge Johansen</div></div>
-            <div class="grid-item"><img src="pedro.jpg" alt="Pedro Dias"><div class="artist-desc">Pedro Dias</div></div>
-            <div class="grid-item"><img src="noel.jpg" alt="Noel Gullerud"><div class="artist-desc">Noel Gullerud</div></div>
-            <div class="grid-item"><img src="harald.jpg" alt="Harald Olsen"><div class="artist-desc">Harald Olsen</div></div>
+            <div class="grid-item">
+                <img src="Rune.jpg" alt="Rune Carlsen">
+                <div class="artist-desc"><strong>Rune Carlsen</strong> er kanskje Norges mest meritterte tryllekunstner med utmerkelser fra tv-opptredener og Magic Castle.</div>
+            </div>
+            <div class="grid-item">
+                <img src="toringe.jpg" alt="Tor Inge Ulveseth">
+                <div class="artist-desc"><strong>Tor Inge Ulveseth</strong> er et kjent fjes i Bergen, både i trylle- og stand-upmiljøet.</div>
+            </div>
+            <div class="grid-item">
+                <img src="hedne.jpg" alt="Hednè">
+                <div class="artist-desc"><strong>Hednè</strong> viser deler av sitt trylleshow POFF – en visuell fest for øyet.</div>
+            </div>
+            <div class="grid-item">
+                <img src="geir.jpg" alt="Geirini">
+                <div class="artist-desc"><strong>Geirini</strong> kommer til å vise flere kaniner enn hatter i sitt elleville show.</div>
+            </div>
+            <div class="grid-item">
+                <img src="john.jpg" alt="John Inge Johansen">
+                <div class="artist-desc"><strong>John Inge Johansen</strong> deltar på dinnershow med sin unike stil.</div>
+            </div>
+            <div class="grid-item">
+                <img src="pedro.jpg" alt="Pedro Dias">
+                <div class="artist-desc"><strong>Pedro Dias</strong> har doktorgrad i filosofi og får folk til å lure på hva som er sant.</div>
+            </div>
+            <div class="grid-item">
+                <img src="noel.jpg" alt="Noel Gullerud">
+                <div class="artist-desc"><strong>Noel Gullerud</strong> har lang fartstid fra han var junior i Bergen til store scener i dag.</div>
+            </div>
+            <div class="grid-item">
+                <img src="harald.jpg" alt="Harald Olsen">
+                <div class="artist-desc"><strong>Harald Olsen</strong> tryller ofte i Bergen med overraskende vendinger.</div>
+            </div>
         </div>
     </section>
 
@@ -291,16 +315,16 @@
         <div class="practical-grid">
             <div class="practical-item">
                 <h3>Sted & Hotell</h3>
-                <p>Vi jobber for tiden med å ferdigstille avtaler for spillested og hotellovernatting sentralt i Bergen. Vi kommer snart tilbake med detaljer.</p>
+                <p>Vi jobber for tiden med å ferdigstille avtaler for spillested og hotellovernatting sentralt i Bergen. Vi kommer snart tilbake med detaljert informasjon.</p>
             </div>
             <div class="practical-item">
                 <h3>Reise</h3>
-                <p>Bergen er lett tilgjengelig med fly, tog (Bergensbanen) og buss. Vi anbefaler å bestille reise i god tid.</p>
+                <p>Bergen er lett tilgjengelig med fly, tog (Bergensbanen) og buss. Vi anbefaler å bestille reise i god tid for best mulig priser.</p>
             </div>
             <div class="practical-item">
                 <h3>Været i Bergen</h3>
                 <div class="weather-container">
-                    <iframe src="https://www.yr.no/nb/innhold/1-92416/card.html" width="100%" height="150" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://www.yr.no/nb/innhold/1-92416/card.html" width="100%" height="100%" frameborder="0" scrolling="no" style="min-height: 150px;"></iframe>
                 </div>
             </div>
         </div>
@@ -312,24 +336,32 @@
             <div class="program-day">
                 <h3>Fredag</h3>
                 <div class="schedule-list">
-                    <div class="schedule-item"><span class="schedule-time">17:00–18:30</span><span>Innsjekk & Dealerne åpner</span></div>
-                    <div class="schedule-item"><span class="schedule-time">19:40–22:00</span><strong>Matstafett & Tablehopping</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">17:00–18:30</span><span>Registrering/innsjekk & Dealerne åpner</span></div>
+                    <div class="schedule-item"><span class="schedule-time">18:30–18:40</span><span>Offisiell åpning</span></div>
+                    <div class="schedule-item"><span class="schedule-time">18:40-19:40</span><strong>Dealershow med det nyeste nye</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">19:40–22:00</span><span>Matstafett & Tablehopping med closeupshow på tre steder</span></div>
+                   <div class="schedule-item"><span class="schedule-time">22:00-22:45</span><span>Utdrag fra Hednés POFF</span></div>
                     <div class="schedule-item"><span class="schedule-time">23:00</span><span>Late Night Magic</span></div>
                 </div>
             </div>
             <div class="program-day">
                 <h3>Lørdag</h3>
                 <div class="schedule-list">
-                    <div class="schedule-item"><span class="schedule-time">11:00–11:45</span><strong>Seminarer</strong></div>
+                     <div class="schedule-item"><span class="schedule-time">10:00–11:00</span><strong>Dealerne har åpent</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">11:00–11:45</span><strong>To paralelle eminarer: Tech og Filosofi:undring eller magi</strong></div>
+                     <div class="schedule-item"><span class="schedule-time">12:30–13:30</span><strong>Seminarer KORT og GODT</strong></div>
+                     <div class="schedule-item"><span class="schedule-time">14:30–15:30</span><strong>Panelet: Hvorfor er trylling så nedprioritert hos eventmakere?</strong></div>
+                     <div class="schedule-item"><span class="schedule-time">15:30-16:45</span><strong>Mingling og shopping hos dealerne</strong></div>
                     <div class="schedule-item"><span class="schedule-time">16:45–17:45</span><strong>Junior-NM</strong></div>
-                    <div class="schedule-item"><span class="schedule-time">19:00</span><strong>Dinner Show</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">19:00–22:30</span><strong>Dinner Show</strong></div>
                 </div>
             </div>
             <div class="program-day">
                 <h3>Søndag</h3>
                 <div class="schedule-list">
-                    <div class="schedule-item"><span class="schedule-time">11:00</span><strong>Seminar: Close-up</strong></div>
-                    <div class="schedule-item"><span class="schedule-time">13:45</span><strong>Familieforestilling</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">11:00–12:00</span><strong>Seminar: TBA</strong></div>
+                   <div class="schedule-item"><span class="schedule-time">12:00–13:00</span><strong>Program - show</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">13:45–15:00</span><strong>Familieforestilling</strong></div>
                     <div class="schedule-item"><span class="schedule-time">15:30</span><span>Avslutning</span></div>
                 </div>
             </div>
@@ -341,11 +373,11 @@
         <div class="dealer-grid">
             <div class="dealer-item">
                 <a href="https://www.pegani.dk/da" target="_blank">
-                    <img src="pegani_logo_sort.webp" alt="Pegani Magic" class="dealer-img">
+                    <img src="pegani_logo_sort.webp" alt="Pegani" class="dealer-img">
                 </a>
             </div>
-            <div class="dealer-item"><div style="color:#64748b">TBA</div></div>
-            <div class="dealer-item"><div style="color:#64748b">TBA</div></div>
+            <div class="dealer-item"><div style="color:#64748b; font-weight:700;">TBA</div></div>
+            <div class="dealer-item"><div style="color:#64748b; font-weight:700;">TBA</div></div>
         </div>
     </section>
 
@@ -354,16 +386,19 @@
         <div class="pricing-grid">
             <div class="price-card">
                 <h4>Early Bird Senior</h4>
+                <p>Fram til 15. mai</p>
                 <div class="amount">2095,-</div>
                 <button class="btn-reg" onclick="openModal('Early Bird Senior')">Simsalabim</button>
             </div>
             <div class="price-card">
                 <h4>Senior fullpris</h4>
+                <p>&nbsp;</p>
                 <div class="amount">2295,-</div>
                 <button class="btn-reg" onclick="openModal('Senior fullpris')">Simsalabim</button>
             </div>
             <div class="price-card">
                 <h4>Junior</h4>
+                <p>&nbsp;</p>
                 <div class="amount">1400,-</div>
                 <button class="btn-reg" onclick="openModal('Junior')">Simsalabim</button>
             </div>
@@ -387,7 +422,7 @@
 
 <footer>
     <img src="mcn.svg" alt="Magiske Cirkel Norge" class="footer-logo">
-    <div style="font-weight:900; color:var(--gold); letter-spacing:2px; font-size:0.8rem;">MAGISKE TIMER 2026 | BERGEN</div>
+    <div style="font-weight:900; color:var(--gold); letter-spacing:2px; font-size:0.8rem; text-transform:uppercase;">MAGISKE TIMER 2026 | BERGEN</div>
 </footer>
 
 <script>

@@ -130,7 +130,7 @@
             margin-top: 0;
         }
 
-        /* TRE BILDER I BREDDEN (GALLERI) */
+        /* GALLERI (Tre bilder i bredden) */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -162,101 +162,4 @@
 
         .footer-logo {
             max-width: 180px;
-            height: auto;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        /* MOBIL-TILPASNING */
-        @media (max-width: 768px) {
-            .info-row, .info-row.reverse {
-                flex-direction: column;
-                text-align: center;
-                gap: 30px;
-            }
-            .image-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <div class="sub-text">Bergen 18.–20. September 2026</div>
-    <h1>Magiske Timer</h1>
-    
-    <div id="countdown-container">
-        <span style="color: var(--gold); font-weight: bold; display: block; margin-bottom: 15px;">NYHETER SLIPPES OM:</span>
-        <div class="timer">
-            <div class="time-box"><span id="days">00</span><span>Dager</span></div>
-            <div class="time-box"><span id="hours">00</span><span>Timer</span></div>
-            <div class="time-box"><span id="minutes">00</span><span>Min</span></div>
-            <div class="time-box"><span id="seconds">00</span><span>Sek</span></div>
-        </div>
-    </div>
-    <p>Nordisk Mesterskap og Tryllekongress mellom de syv fjell.</p>
-</header>
-
-<main class="content-wrapper">
-
-    <section class="info-row">
-        <div class="image-box">
-            <img src="Boje.jpeg" alt="Boje - Magi i Bergen">
-        </div>
-        <div class="text-box">
-            <h2>Magi i Bergen</h2>
-            <p>I 2026 inntar vi Bergen sentrum. Det blir en helg fylt med seminarer, forestillinger og sosialt samvær for alle som elsker trylling.</p>
-        </div>
-    </section>
-
-    <section class="info-row reverse">
-        <div class="image-box">
-            <img src="Kevin.jpeg" alt="Kevin - NM i Trylling">
-        </div>
-        <div class="text-box">
-            <h2>NM i Trylling</h2>
-            <p>Hvem blir årets norgesmester? Vi inviterer til konkurranse i både scene- og close-up trylling på profesjonelle scener.</p>
-        </div>
-    </section>
-
-    <section>
-        <center><h2 style="font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 30px;">Gjør deg klar for...</h2></center>
-        <div class="image-grid">
-            <div class="grid-item"><img src="hedne.jpg" alt="Hedne"></div>
-            <div class="grid-item"><img src="geir.jpg" alt="Geir"></div>
-            <div class="grid-item"><img src="john.jpg" alt="John"></div>
-        </div>
-    </section>
-
-</main>
-
-<footer>
-    <img src="mcn.svg" alt="MCN Logo" class="footer-logo">
-    <p>Magiske Cirkel Norge &copy; 2026</p>
-</footer>
-
-<script>
-    const countDownDate = new Date("Mar 5, 2026 12:00:00").getTime();
-    const x = setInterval(function() {
-        const now = new Date().getTime();
-        const distance = countDownDate - now;
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
-        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
-        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
-        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
-
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("countdown-container").innerHTML = "<h2>NYHETENE ER SLUPPET! ✨</h2>";
-        }
-    }, 1000);
-</script>
-
-</body>
-</html>
+            height: auto

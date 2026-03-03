@@ -110,12 +110,11 @@
 
         /* Grids */
         .image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-        .grid-item { text-align: center; }
+        .grid-item { text-align: center; display: flex; flex-direction: column; }
         .grid-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); transition: 0.4s; }
         .grid-item img:hover { transform: translateY(-10px); border-color: var(--gold); }
         .artist-desc { margin-top: 15px; font-weight: 700; color: var(--gold); font-size: 1rem; }
 
-        /* Dealer Logoer */
         .dealer-img { background: white; padding: 25px; box-sizing: border-box; object-fit: contain !important; }
 
         /* Program */
@@ -126,11 +125,6 @@
         .schedule-item { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .schedule-time { font-weight: 900; color: var(--gold); display: block; font-size: 1.1rem; }
 
-        /* Video */
-        .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
-        .video-container { width: 100%; border-radius: 15px; border: 2px solid var(--gold); overflow: hidden; background: #000; aspect-ratio: 16/9; position: relative; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
         /* Påmelding */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
         .price-card { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 40px 30px; border-radius: 20px; text-align: center; display: flex; flex-direction: column; transition: 0.3s; }
@@ -139,7 +133,7 @@
         .price-card .amount { font-size: 3rem; font-weight: 900; margin: 20px 0; letter-spacing: -1px; }
         .btn-reg { background: var(--gold); color: var(--dark); border: none; padding: 15px; font-weight: 900; text-transform: uppercase; border-radius: 8px; cursor: pointer; width: 100%; transition: 0.3s; font-size: 1.1rem; margin-top: auto; }
 
-        /* MODAL (FIXED) */
+        /* MODAL */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); }
         .modal-content { background: var(--dark); margin: 5% auto; padding: 50px; border: 3px solid var(--gold); width: 90%; max-width: 500px; border-radius: 20px; position: relative; }
         .modal-content input { width: 100%; padding: 15px; margin: 10px 0 20px 0; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white; border-radius: 8px; box-sizing: border-box; }
@@ -150,9 +144,8 @@
         .footer-text { font-weight: 900; letter-spacing: 2px; color: var(--gold); opacity: 0.8; font-size: 0.8rem; text-transform: uppercase; }
 
         @media (max-width: 1100px) { 
-            .info-row, .info-row.reverse, .program-grid, .video-grid { flex-direction: column; grid-template-columns: 1fr; } 
-            .image-box { flex: 1; }
-            .image-grid { grid-template-columns: 1fr; }
+            .info-row, .info-row.reverse, .program-grid { flex-direction: column; grid-template-columns: 1fr; } 
+            .image-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
@@ -210,9 +203,30 @@
     <section id="Artister">
         <center><h2>Artister</h2></center>
         <div class="image-grid">
-            <div class="grid-item"><img src="hedne.jpg" alt="Hednè"><div class="artist-desc">Hednè viser deler av sitt trylleshow POFF</div></div>
-            <div class="grid-item"><img src="geir.jpg" alt="Geirini"><div class="artist-desc">Geirini kommer til å vise flere kaniner enn hatter</div></div>
-            <div class="grid-item"><img src="john.jpg" alt="John Inge Johansen"><div class="artist-desc">John Inge Johansen deltar på Dinnershow</div></div>
+            <div class="grid-item">
+                <img src="hedne.jpg" alt="Hednè">
+                <div class="artist-desc">Hednè viser deler av sitt trylleshow POFF</div>
+            </div>
+            <div class="grid-item">
+                <img src="geir.jpg" alt="Geirini">
+                <div class="artist-desc">Geirini kommer til å vise flere kaniner enn hatter</div>
+            </div>
+            <div class="grid-item">
+                <img src="john.jpg" alt="John Inge Johansen">
+                <div class="artist-desc">John Inge Johansen deltar på Dinnershow</div>
+            </div>
+            <div class="grid-item">
+                <img src="pedro.jpg" alt="Pedro Dias">
+                <div class="artist-desc">Pedro Dias har doktorgrad i filosofi, og får både publikum og andre til å lure på hva som egentlig er sant.</div>
+            </div>
+            <div class="grid-item">
+                <img src="noel.jpg" alt="Noel Gullerud">
+                <div class="artist-desc">Noel Gullerud har lang fartstid helt fra han var junior i Bergen, til i dag hvor han opptrer på små og store scener.</div>
+            </div>
+            <div class="grid-item">
+                <img src="harald.jpg" alt="Harald Olsen">
+                <div class="artist-desc">Harald Olsen tryller ofte og mye på scener i Bergen med overraskende vendinger.</div>
+            </div>
         </div>
     </section>
 
@@ -253,7 +267,7 @@
         <center><h2>Dealere</h2></center>
         <div class="image-grid">
             <div class="grid-item">
-                <img src="pegani_logo_sort.webp" alt="Pegani" class="dealer-img">
+                <img src="pegani_logo_sort.webp" alt="Pegani Magic" class="dealer-img">
                 <div class="artist-desc">Pegani Magic</div>
             </div>
             <div class="grid-item">
@@ -282,10 +296,30 @@
     <section id="Paamelding">
         <center><h2>Påmelding</h2></center>
         <div class="pricing-grid">
-            <div class="price-card"><h4>Early Bird Senior</h4><p>Fram til 15. mai</p><div class="amount">2095,-</div><button class="btn-reg" onclick="openModal('Early Bird Senior - 2095,-')">Simsalabim</button></div>
-            <div class="price-card"><h4>Senior fullpris</h4><p>&nbsp;</p><div class="amount">2295,-</div><button class="btn-reg" onclick="openModal('Senior fullpris - 2295,-')">Simsalabim</button></div>
-            <div class="price-card"><h4>Junior</h4><p>&nbsp;</p><div class="amount">1400,-</div><button class="btn-reg" onclick="openModal('Junior - 1400,-')">Simsalabim</button></div>
-            <div class="price-card"><h4>Foresatte</h4><p>Kongresskort</p><div class="amount">400,-</div><button class="btn-reg" onclick="openModal('Kongresskort foresatte - 400,-')">Simsalabim</button></div>
+            <div class="price-card">
+                <h4>Early Bird Senior</h4>
+                <p>Fram til 15. mai</p>
+                <div class="amount">2095,-</div>
+                <button class="btn-reg" onclick="openModal('Early Bird Senior - 2095,-')">Simsalabim</button>
+            </div>
+            <div class="price-card">
+                <h4>Senior fullpris</h4>
+                <p>&nbsp;</p>
+                <div class="amount">2295,-</div>
+                <button class="btn-reg" onclick="openModal('Senior fullpris - 2295,-')">Simsalabim</button>
+            </div>
+            <div class="price-card">
+                <h4>Junior</h4>
+                <p>&nbsp;</p>
+                <div class="amount">1400,-</div>
+                <button class="btn-reg" onclick="openModal('Junior - 1400,-')">Simsalabim</button>
+            </div>
+            <div class="price-card">
+                <h4>Foresatte</h4>
+                <p>Kongresskort</p>
+                <div class="amount">400,-</div>
+                <button class="btn-reg" onclick="openModal('Kongresskort foresatte - 400,-')">Simsalabim</button>
+            </div>
         </div>
     </section>
 </main>

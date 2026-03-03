@@ -100,16 +100,13 @@
         
         .info-row { display: flex; align-items: center; gap: 60px; }
         .info-row.reverse { flex-direction: row-reverse; }
+
+        .image-box { flex: 2; text-align: center; }
         .image-box img { width: 100%; border-radius: 15px; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         .img-caption { margin-top: 20px; font-weight: 700; color: var(--gold); font-size: 1.1rem; text-align: center; }
+        
+        .text-box { flex: 1; }
         .text-box p { font-size: 1.4rem; opacity: 0.95; }
-
-        /* Artister */
-        .image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-        .grid-item { text-align: center; }
-        .grid-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); transition: 0.4s; }
-        .grid-item img:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .artist-desc { margin-top: 15px; font-weight: 700; color: var(--gold); font-size: 1rem; }
 
         /* Program */
         .program-grid { display: flex; gap: 20px; margin-top: 40px; }
@@ -123,14 +120,12 @@
         .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
         .video-container { width: 100%; border-radius: 15px; border: 2px solid var(--gold); overflow: hidden; background: #000; aspect-ratio: 16/9; position: relative; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .video-placeholder { height: 100%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
 
         /* PÅMELDING */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
         .price-card { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 40px 30px; border-radius: 20px; text-align: center; display: flex; flex-direction: column; transition: 0.3s; }
         .price-card:hover { border-color: var(--gold); transform: scale(1.02); }
         .price-card h4 { font-size: 1.3rem; margin: 0; color: var(--gold); text-transform: uppercase; font-weight: 900; }
-        .price-card p { margin: 15px 0; min-height: 1.5em; font-weight: 600; opacity: 0.8; }
         .price-card .amount { font-size: 3rem; font-weight: 900; margin: 20px 0; letter-spacing: -1px; }
         .btn-reg { background: var(--gold); color: var(--dark); border: none; padding: 15px; font-weight: 900; text-transform: uppercase; border-radius: 8px; cursor: pointer; width: 100%; transition: 0.3s; font-size: 1.1rem; margin-top: auto; }
 
@@ -141,10 +136,11 @@
         .close { position: absolute; right: 25px; top: 15px; color: white; font-size: 35px; cursor: pointer; }
 
         footer { padding: 100px 20px; background: #020617; text-align: center; border-top: 1px solid #1e293b; }
-        .footer-logo { max-width: 220px; margin-bottom: 30px; }
+        .footer-text { font-weight: 900; letter-spacing: 2px; color: var(--gold); opacity: 0.8; }
 
         @media (max-width: 1100px) { 
             .info-row, .info-row.reverse, .program-grid, .video-grid { flex-direction: column; grid-template-columns: 1fr; } 
+            .image-box { flex: 1; }
         }
     </style>
 </head>
@@ -152,7 +148,6 @@
 
 <nav>
     <a href="#">Hjem</a>
-    <a href="#Artister">Artister</a>
     <a href="#Program">Program</a>
     <a href="#Paamelding">Påmelding</a>
 </nav>
@@ -174,17 +169,27 @@
 
     <section>
         <div class="info-row">
-            <div class="image-box"><img src="Boje.jpeg" alt="Boje"><div class="img-caption">Boje Hoset er en av landets mest aktive tryllekunstnere.</div></div>
-            <div class="text-box"><h2>Magi i Bergen</h2><p>Høsten 2026 forvandles Bergen til Norges mest magiske by. Vi inviterer til en kongress med åpne trylleshow, lukkede lectures, læring og unike opplevelser.</p></div>
+            <div class="image-box">
+                <img src="Boje.jpeg" alt="Boje Hoset">
+                <div class="img-caption">Boje Hoset er en av landets mest aktive tryllekunstnere.</div>
+            </div>
+            <div class="text-box">
+                <h2>Magi i Bergen</h2>
+                <p>Høsten 2026 forvandles Bergen til Norges mest magiske by. Vi inviterer til en kongress med åpne trylleshow, lukkede lectures og unike opplevelser.</p>
+            </div>
         </div>
     </section>
 
-    <section id="Artister">
-        <center><h2>Artister</h2></center>
-        <div class="image-grid">
-            <div class="grid-item"><img src="hedne.jpg" alt="Hednè"><div class="artist-desc">Hednè viser deler av sitt trylleshow POFF</div></div>
-            <div class="grid-item"><img src="geir.jpg" alt="Geirini"><div class="artist-desc">Geirini kommer til å vise flere kaniner enn hatter</div></div>
-            <div class="grid-item"><img src="john.jpg" alt="John"><div class="artist-desc">John Inge Johansen deltar på Dinnershow</div></div>
+    <section>
+        <div class="info-row reverse">
+            <div class="image-box">
+                <img src="Kevin.jpg" alt="Kevin Lunde">
+                <div class="img-caption">Kevin Lunde leder galla-showet på lørdag.</div>
+            </div>
+            <div class="text-box">
+                <h2>Junior-NM</h2>
+                <p>Junior-NM i trylling er selve ryggraden i Magiske Timer. Se landets beste talenter konkurrere om de gjeveste titlene.</p>
+            </div>
         </div>
     </section>
 
@@ -225,14 +230,10 @@
         <center><h2>Glimt fra showet</h2></center>
         <div class="video-grid">
             <div class="video-container">
-                <iframe 
-                    src="https://player.vimeo.com/video/1169931420?h=da06056731&autoplay=1&loop=1&muted=1&background=1" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
+                <iframe src="https://player.vimeo.com/video/1169931420?h=da06056731&autoplay=1&loop=1&muted=1&background=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
-            <div class="video-container">
-                <div class="video-placeholder">Neste artist kommer snart...</div>
+            <div class="video-container" style="display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); color: var(--gold); font-weight: 900; text-transform: uppercase;">
+                Neste artist kommer snart...
             </div>
         </div>
     </section>
@@ -240,30 +241,10 @@
     <section id="Paamelding">
         <center><h2>Påmelding</h2></center>
         <div class="pricing-grid">
-            <div class="price-card">
-                <h4>Early Bird Senior</h4>
-                <p>Fram til 15. mai</p>
-                <div class="amount">2095,-</div>
-                <button class="btn-reg" onclick="openModal('Early Bird Senior - 2095,-')">Simsalabim</button>
-            </div>
-            <div class="price-card">
-                <h4>Senior fullpris</h4>
-                <p>&nbsp;</p>
-                <div class="amount">2295,-</div>
-                <button class="btn-reg" onclick="openModal('Senior fullpris - 2295,-')">Simsalabim</button>
-            </div>
-            <div class="price-card">
-                <h4>Junior</h4>
-                <p>&nbsp;</p>
-                <div class="amount">1400,-</div>
-                <button class="btn-reg" onclick="openModal('Junior - 1400,-')">Simsalabim</button>
-            </div>
-            <div class="price-card">
-                <h4>Foresatte</h4>
-                <p>Kongresskort</p>
-                <div class="amount">400,-</div>
-                <button class="btn-reg" onclick="openModal('Kongresskort foresatte - 400,-')">Simsalabim</button>
-            </div>
+            <div class="price-card"><h4>Early Bird Senior</h4><p>Fram til 15. mai</p><div class="amount">2095,-</div><button class="btn-reg" onclick="openModal('Early Bird Senior - 2095,-')">Simsalabim</button></div>
+            <div class="price-card"><h4>Senior fullpris</h4><p>&nbsp;</p><div class="amount">2295,-</div><button class="btn-reg" onclick="openModal('Senior fullpris - 2295,-')">Simsalabim</button></div>
+            <div class="price-card"><h4>Junior</h4><p>&nbsp;</p><div class="amount">1400,-</div><button class="btn-reg" onclick="openModal('Junior - 1400,-')">Simsalabim</button></div>
+            <div class="price-card"><h4>Foresatte</h4><p>Kongresskort</p><div class="amount">400,-</div><button class="btn-reg" onclick="openModal('Kongresskort foresatte - 400,-')">Simsalabim</button></div>
         </div>
     </section>
 </main>
@@ -281,11 +262,6 @@
         </form>
     </div>
 </div>
-
-<footer>
-    <img src="mcn.svg" alt="MCN" class="footer-logo">
-    <div class="footer-text">MAGISKE TIMER 2026 | MAGISKE CIRKEL NORGE</div>
-</footer>
 
 <script>
     function openModal(type) {

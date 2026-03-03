@@ -96,7 +96,7 @@
 
         /* Seksjoner */
         section { margin-bottom: 150px; scroll-margin-top: 100px; }
-        h2 { font-weight: 900; font-size: clamp(2.5rem, 10vw, 5.5rem); color: var(--gold); text-transform: uppercase; margin-bottom: 40px; letter-spacing: -2px; line-height: 1; }
+        h2 { font-weight: 900; font-size: clamp(2.5rem, 10vw, 5.5rem); color: var(--gold); text-transform: uppercase; margin-bottom: 40px; letter-spacing: -2px; line-height: 1; text-align: center; }
         
         .info-row { display: flex; align-items: center; gap: 60px; }
         .info-row.reverse { flex-direction: row-reverse; }
@@ -107,6 +107,24 @@
         
         .text-box { flex: 1; }
         .text-box p { font-size: 1.4rem; opacity: 0.95; }
+
+        /* SENTRERT OG STOR VIDEO */
+        .video-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .video-container { 
+            width: 100%; 
+            border-radius: 20px; 
+            border: 3px solid var(--gold); 
+            overflow: hidden; 
+            background: #000; 
+            aspect-ratio: 16/9; 
+            position: relative;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
         /* Grids */
         .image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
@@ -124,6 +142,26 @@
         .schedule-list { list-style: none; padding: 0; }
         .schedule-item { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .schedule-time { font-weight: 900; color: var(--gold); display: block; font-size: 1.1rem; }
+
+        /* Praktisk Info */
+        .practical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .practical-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+        }
+        .practical-item h3 {
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
 
         /* Påmelding */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
@@ -155,6 +193,7 @@
     <a href="#">Hjem</a>
     <a href="#Artister">Artister</a>
     <a href="#Program">Program</a>
+    <a href="#Praktisk">Praktisk</a>
     <a href="#Dealers">Dealere</a>
     <a href="#Paamelding">Påmelding</a>
 </nav>
@@ -188,24 +227,20 @@
     </section>
 
     <section>
-        <div class="info-row reverse">
-            <div class="image-box">
-                <img src="Kevin.jpg" alt="Kevin Lunde">
-                <div class="img-caption">Kevin Lunde leder galla-showet på lørdag.</div>
-            </div>
-            <div class="text-box">
-                <h2>Junior-NM</h2>
-                <p>Junior-NM i trylling er selve ryggraden i Magiske Timer. Se landets beste talenter konkurrere om de gjeveste titlene.</p>
+        <div class="video-wrapper">
+            <h2>Opplev atmosfæren</h2>
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/1169931420?h=da06056731&autoplay=1&loop=1&muted=1&background=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
     <section id="Artister">
-        <center><h2>Artister</h2></center>
+        <h2>Artister</h2>
         <div class="image-grid">
             <div class="grid-item">
                 <img src="Rune.jpg" alt="Rune Carlsen">
-                <div class="artist-desc">Rune Carlsen er kanskje Norges mest meritterte tryllekunstner med utmerkelser fra tv-opptredener og ikke minst Magic Castle.</div>
+                <div class="artist-desc">Rune Carlsen er kanskje Norges mest meritterte tryllekunstner med utmerkelser fra tv-opptredener og Magic Castle.</div>
             </div>
             <div class="grid-item">
                 <img src="toringe.jpg" alt="Tor Inge Ulveseth">
@@ -238,8 +273,26 @@
         </div>
     </section>
 
+    <section id="Praktisk">
+        <h2>Praktisk Informasjon</h2>
+        <div class="practical-grid">
+            <div class="practical-item">
+                <h3>Sted & Hotell</h3>
+                <p>Vi jobber for tiden med å ferdigstille avtaler for spillested og hotellovernatting sentralt i Bergen. Vi kommer snart tilbake med detaljert informasjon om nøyaktig lokasjon og priser for delegater.</p>
+            </div>
+            <div class="practical-item">
+                <h3>Reise</h3>
+                <p>Bergen er lett tilgjengelig med fly, tog (Bergensbanen) og buss. Vi anbefaler å bestille reise i god tid for best mulig priser.</p>
+            </div>
+            <div class="practical-item">
+                <h3>Kontakt</h3>
+                <p>Har du spørsmål vedrørende påmelding eller programmet? Ta kontakt med Magiske Cirkel Norge via våre sosiale medier eller e-post.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="Program">
-        <center><h2>Program</h2></center>
+        <h2>Program</h2>
         <div class="program-grid">
             <div class="program-day">
                 <h3>Fredag</h3>
@@ -272,7 +325,7 @@
     </section>
 
     <section id="Dealers">
-        <center><h2>Dealere</h2></center>
+        <h2>Dealere</h2>
         <div class="image-grid">
             <div class="grid-item">
                 <img src="pegani_logo_sort.webp" alt="Pegani Magic" class="dealer-img">
@@ -289,20 +342,8 @@
         </div>
     </section>
 
-    <section>
-        <center><h2>Magiske glimt</h2></center>
-        <div class="video-grid">
-            <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/1169931420?h=da06056731&autoplay=1&loop=1&muted=1&background=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-            <div class="video-container" style="display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); color: var(--gold); font-weight: 900; text-transform: uppercase;">
-                Neste artist kommer snart...
-            </div>
-        </div>
-    </section>
-
     <section id="Paamelding">
-        <center><h2>Påmelding</h2></center>
+        <h2>Påmelding</h2>
         <div class="pricing-grid">
             <div class="price-card">
                 <h4>Early Bird Senior</h4>

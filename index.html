@@ -108,23 +108,40 @@
         .text-box { flex: 1; }
         .text-box p { font-size: 1.4rem; opacity: 0.95; }
 
-        /* SENTRERT OG STOR VIDEO */
-        .video-wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+        /* KEVIN BILDESESKSON (1/3 SMALERE) */
+        .info-row.reverse .image-box { flex: 0.7; max-width: 300px; } /* Kevin blir smalere */
+        .info-row.reverse .text-box { flex: 2.3; }
+
+        /* VIDEO SEKSJON (2/3 BREDDE, SENTRERT) */
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px; 
+            max-width: 866px; /* 2/3 av content-wrapper bredden */
+            margin: 50px auto; 
         }
         .video-container { 
             width: 100%; 
-            border-radius: 20px; 
-            border: 3px solid var(--gold); 
+            border-radius: 15px; 
+            border: 2px solid var(--gold); 
             overflow: hidden; 
             background: #000; 
             aspect-ratio: 16/9; 
-            position: relative;
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+            position: relative; 
         }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-placeholder { 
+            height: 100%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: var(--gold); 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            text-align: center; 
+            background: rgba(255,255,255,0.05);
+        }
 
         /* Grids */
         .image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
@@ -144,24 +161,9 @@
         .schedule-time { font-weight: 900; color: var(--gold); display: block; font-size: 1.1rem; }
 
         /* Praktisk Info */
-        .practical-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .practical-item {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid var(--border);
-        }
-        .practical-item h3 {
-            color: var(--gold);
-            text-transform: uppercase;
-            margin-top: 0;
-            font-size: 1.5rem;
-        }
+        .practical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .practical-item { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border); }
+        .practical-item h3 { color: var(--gold); text-transform: uppercase; margin-top: 0; font-size: 1.5rem; }
 
         /* Påmelding */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
@@ -182,8 +184,9 @@
         .footer-text { font-weight: 900; letter-spacing: 2px; color: var(--gold); opacity: 0.8; font-size: 0.8rem; text-transform: uppercase; }
 
         @media (max-width: 1100px) { 
-            .info-row, .info-row.reverse, .program-grid { flex-direction: column; grid-template-columns: 1fr; } 
+            .info-row, .info-row.reverse, .program-grid, .video-grid { flex-direction: column; grid-template-columns: 1fr; } 
             .image-grid { grid-template-columns: 1fr 1fr; }
+            .info-row.reverse .image-box { max-width: 100%; } /* Går tilbake til full bredde på mobil */
         }
     </style>
 </head>
@@ -227,10 +230,26 @@
     </section>
 
     <section>
-        <div class="video-wrapper">
-            <h2>Opplev atmosfæren</h2>
+        <div class="info-row reverse">
+            <div class="image-box">
+                <img src="Kevin.jpg" alt="Kevin Lunde">
+                <div class="img-caption">Kevin Lunde leder galla-showet på lørdag.</div>
+            </div>
+            <div class="text-box">
+                <h2>Junior-NM</h2>
+                <p>Junior-NM i trylling er selve ryggraden i Magiske Timer. Se landets beste talenter konkurrere om de gjeveste titlene.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <center><h2>Magiske Glimt</h2></center>
+        <div class="video-grid">
             <div class="video-container">
                 <iframe src="https://player.vimeo.com/video/1169931420?h=da06056731&autoplay=1&loop=1&muted=1&background=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <div class="video-placeholder">Neste artist kommer snart...</div>
             </div>
         </div>
     </section>

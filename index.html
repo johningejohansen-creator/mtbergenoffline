@@ -179,7 +179,7 @@
 
     <section class="info-row reverse">
         <div class="image-box">
-            <img src="https://images.unsplash.com/photo-1523251343397-9225e4cb6319?q=80&w=1000&auto=format&fit=crop" alt="Tryllekunstner">
+            <img src="Kevin.jpeg" alt="Kevin - NM i Trylling">
         </div>
         <div class="text-box">
             <h2>NM i Trylling</h2>
@@ -198,4 +198,22 @@
     const x = setInterval(function() {
         const now = new Date().getTime();
         const distance = countDownDate - now;
-        const days = Math.floor(distance /
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown-container").innerHTML = "<h2>NYHETENE ER SLUPPET!</h2>";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>

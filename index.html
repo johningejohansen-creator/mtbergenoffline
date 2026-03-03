@@ -112,7 +112,7 @@
         .info-row.reverse .image-box { flex: 0.7; max-width: 300px; }
         .info-row.reverse .text-box { flex: 2.3; }
 
-        /* VIDEO SEKSJON (2/3 bredde) */
+        /* VIDEO SEKSJON */
         .video-grid { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
@@ -150,7 +150,7 @@
         .grid-item img:hover { transform: translateY(-10px); border-color: var(--gold); }
         .artist-desc { margin-top: 15px; font-weight: 700; color: var(--gold); font-size: 1rem; line-height: 1.4; padding: 0 10px; }
 
-        /* DEALERE (Lys grå) */
+        /* DEALERE */
         .dealer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
@@ -184,7 +184,7 @@
         .practical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
         .practical-item { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border); }
         .practical-item h3 { color: var(--gold); text-transform: uppercase; margin-top: 0; font-size: 1.5rem; }
-        .weather-container { border-radius: 10px; overflow: hidden; margin-top: 15px; min-height: 150px; }
+        .weather-container { border-radius: 10px; overflow: hidden; margin-top: 15px; min-height: 250px; }
 
         /* Påmelding */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
@@ -203,7 +203,7 @@
         .footer-logo { max-width: 180px; margin-bottom: 25px; filter: brightness(1.5); }
 
         @media (max-width: 1100px) { 
-            .info-row, .info-row.reverse, .program-grid, .video-grid { flex-direction: column; grid-template-columns: 1fr; } 
+            .info-row, .info-row.reverse, .program-grid, .video-grid { flex-direction: column; } 
             .image-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
@@ -255,7 +255,7 @@
             </div>
             <div class="text-box">
                 <h2>Junior-NM</h2>
-                <p>I løpet av helgen arrangeres Junior-NM i trylling. Dette er selve ryggraden i norsk magi og juniorene skal la magien leve i årene som kommer. Et flott show som er åpent for alle som kjøper billett...  Se landets beste talenter konkurrere om de gjeveste titlene.</p>
+                <p>I løpet av helgen arrangeres Junior-NM i trylling. Dette er selve ryggraden i norsk magi og juniorene skal la magien leve i årene som kommer. Et flott show som er åpent for alle som kjøper billett... Se landets beste talenter konkurrere om de gjeveste titlene.</p>
             </div>
         </div>
     </section>
@@ -340,18 +340,18 @@
                     <div class="schedule-item"><span class="schedule-time">18:30–18:40</span><span>Offisiell åpning</span></div>
                     <div class="schedule-item"><span class="schedule-time">18:40-19:40</span><strong>Dealershow med det nyeste nye</strong></div>
                     <div class="schedule-item"><span class="schedule-time">19:40–22:00</span><span>Matstafett & Tablehopping med closeupshow på tre steder</span></div>
-                   <div class="schedule-item"><span class="schedule-time">22:00-22:45</span><span>Utdrag fra Hednés POFF</span></div>
+                    <div class="schedule-item"><span class="schedule-time">22:00-22:45</span><span>Utdrag fra Hednés POFF</span></div>
                     <div class="schedule-item"><span class="schedule-time">23:00</span><span>Late Night Magic</span></div>
                 </div>
             </div>
             <div class="program-day">
                 <h3>Lørdag</h3>
                 <div class="schedule-list">
-                     <div class="schedule-item"><span class="schedule-time">10:00–11:00</span><strong>Dealerne har åpent</strong></div>
-                    <div class="schedule-item"><span class="schedule-time">11:00–11:45</span><strong>To paralelle eminarer: Tech og Filosofi:undring eller magi</strong></div>
-                     <div class="schedule-item"><span class="schedule-time">12:30–13:30</span><strong>Seminarer KORT og GODT</strong></div>
-                     <div class="schedule-item"><span class="schedule-time">14:30–15:30</span><strong>Panelet: Hvorfor er trylling så nedprioritert hos eventmakere?</strong></div>
-                     <div class="schedule-item"><span class="schedule-time">15:30-16:45</span><strong>Mingling og shopping hos dealerne</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">10:00–11:00</span><strong>Dealerne har åpent</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">11:00–11:45</span><strong>To paralelle seminarer: Tech og Filosofi: undring eller magi</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">12:30–13:30</span><strong>Seminarer KORT og GODT</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">14:30–15:30</span><strong>Panelet: Hvorfor er trylling så nedprioritert hos eventmakere?</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">15:30-16:45</span><strong>Mingling og shopping hos dealerne</strong></div>
                     <div class="schedule-item"><span class="schedule-time">16:45–17:45</span><strong>Junior-NM</strong></div>
                     <div class="schedule-item"><span class="schedule-time">19:00–22:30</span><strong>Dinner Show</strong></div>
                 </div>
@@ -360,7 +360,7 @@
                 <h3>Søndag</h3>
                 <div class="schedule-list">
                     <div class="schedule-item"><span class="schedule-time">11:00–12:00</span><strong>Seminar: TBA</strong></div>
-                   <div class="schedule-item"><span class="schedule-time">12:00–13:00</span><strong>Program - show</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">12:00–13:00</span><strong>Program - show</strong></div>
                     <div class="schedule-item"><span class="schedule-time">13:45–15:00</span><strong>Familieforestilling</strong></div>
                     <div class="schedule-item"><span class="schedule-time">15:30</span><span>Avslutning</span></div>
                 </div>
@@ -391,16 +391,22 @@
                 <button class="btn-reg" onclick="openModal('Early Bird Senior')">Simsalabim</button>
             </div>
             <div class="price-card">
-                <h4>Senior fullpris</h4>
-                <p>&nbsp;</p>
+                <h4>Kongresskort Senior</h4>
+                <p>Fullpris etter 15. mai</p>
                 <div class="amount">2295,-</div>
-                <button class="btn-reg" onclick="openModal('Senior fullpris')">Simsalabim</button>
+                <button class="btn-reg" onclick="openModal('Kongresskort Senior')">Simsalabim</button>
             </div>
             <div class="price-card">
-                <h4>Junior</h4>
-                <p>&nbsp;</p>
+                <h4>Kongresskort Junior</h4>
+                <p>For medlemmer under 18 år</p>
                 <div class="amount">1400,-</div>
-                <button class="btn-reg" onclick="openModal('Junior')">Simsalabim</button>
+                <button class="btn-reg" onclick="openModal('Kongresskort Junior')">Simsalabim</button>
+            </div>
+            <div class="price-card">
+                <h4>Ledsager</h4>
+                <p>For ikke-tryllende følge</p>
+                <div class="amount">400,-</div>
+                <button class="btn-reg" onclick="openModal('Ledsager')">Simsalabim</button>
             </div>
         </div>
     </section>

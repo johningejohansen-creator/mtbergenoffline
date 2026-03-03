@@ -22,11 +22,12 @@
 
         /* HEADER / HERO */
         header {
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
-                        url('header-bilde.jpg'); /* Erstatt med ditt filnavn */
+            /* HER ER PLACEHOLDER FOR HEADER-BILDE */
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1504194906613-324209869635?q=80&w=2070&auto=format&fit=crop'); 
             background-size: cover;
             background-position: center;
-            min-height: 90vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -54,12 +55,11 @@
         /* NEDTELLING */
         #countdown-container {
             background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
+            padding: 30px;
             border-radius: 20px;
             border: 2px solid var(--gold);
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
-            margin: 40px 0;
+            margin: 30px 0;
             max-width: 600px;
         }
 
@@ -92,7 +92,7 @@
         .content-wrapper {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
 
         .info-row {
@@ -132,7 +132,7 @@
         }
 
         footer {
-            padding: 60px;
+            padding: 40px;
             background: #020617;
             text-align: center;
             border-top: 1px solid #1e293b;
@@ -144,9 +144,6 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 30px;
-            }
-            .text-box h2 {
-                font-size: 2rem;
             }
         }
     </style>
@@ -166,29 +163,28 @@
             <div class="time-box"><span id="seconds">00</span><span>Sek</span></div>
         </div>
     </div>
-
-    <p style="max-width: 600px;">Bli med når norgestoppen i trylling inntar vestlandets hovedstad for en magisk helg du sent vil glemme.</p>
+    <p>Nordisk Mesterskap og Tryllekongress mellom de syv fjell.</p>
 </header>
 
 <main class="content-wrapper">
 
     <section class="info-row">
         <div class="image-box">
-            <img src="bergen-scene.jpg" alt="Scene i Bergen">
+            <img src="https://images.unsplash.com/photo-1517263904808-5dc91e3e7044?q=80&w=1000&auto=format&fit=crop" alt="Magi i Bergen">
         </div>
         <div class="text-box">
-            <h2>Magi mellom de syv fjell</h2>
-            <p>I 2026 flytter vi hele kongressen til hjertet av Bergen. Med nærhet til både fjord og fjell, skal vi skape en atmosfære som inspirerer både amatører og profesjonelle tryllekunstnere.</p>
+            <h2>Magi i Bergen</h2>
+            <p>I 2026 inntar vi Bergen sentrum. Det blir en helg fylt med seminarer, forestillinger og sosialt samvær for alle som elsker trylling.</p>
         </div>
     </section>
 
     <section class="info-row reverse">
         <div class="image-box">
-            <img src="nm-trylling.jpg" alt="NM i Trylling">
+            <img src="https://images.unsplash.com/photo-1523251343397-9225e4cb6319?q=80&w=1000&auto=format&fit=crop" alt="Tryllekunstner">
         </div>
         <div class="text-box">
-            <h2>Nordisk Mesterskap</h2>
-            <p>Gjør deg klar for beinhard konkurranse! Det skal kjempes om titler i både scene- og close-up trylling. Våre dommere er internasjonale eksperter som sikrer et skyhøyt nivå.</p>
+            <h2>NM i Trylling</h2>
+            <p>Hvem blir årets norgesmester? Vi inviterer til konkurranse i både scene- og close-up trylling på profesjonelle scener.</p>
         </div>
     </section>
 
@@ -200,27 +196,10 @@
 
 <script>
     const countDownDate = new Date("Mar 5, 2026 12:00:00").getTime();
-
     const x = setInterval(function() {
         const now = new Date().getTime();
         const distance = countDownDate - now;
-
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
-        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
-        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
-        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
-
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("countdown-container").innerHTML = "<h2>NYHETENE ER SLUPPET! ✨</h2>";
-        }
-    }, 1000);
-</script>
-
-</body>
-</html>
+        const seconds = Math.floor((distance % (1000 *

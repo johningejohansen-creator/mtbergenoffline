@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Nedtelling</title>
-
+<script>
+  const launchTime = new Date("2026-03-11T18:30:00+01:00").getTime(); // Oslo-tid (CET)
+  if (Date.now() >= launchTime) {
+    // Bytt til den "aktive" siden når tiden er ute:
+    window.location.replace("indexbak.html");
+  }
+</script>
 <style>
 
 body{

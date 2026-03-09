@@ -5,12 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Magisk nytt kommer</title>
 
+
+
 <script>
-  // Oslo-tid (CET). Etter dette sendes du til indexbak.html
+  // Oslo-tid (CET). Etter dette hentes token og brukeren sendes til /go
   const launchTime = new Date("2026-03-11T18:30:00+01:00").getTime();
-  if (Date.now() >= launchTime) window.location.replace("/go?t=" + encodeURIComponent(data.token));
+
+  async function goSecret() {
+    try {
+      const r = await fetch("/api/token", { cache: "no-store" });
+      if (!r.ok) throw new Error("Kunne ikke hente token");
+
+      const data = await r.json();
+      if (!data.token) throw new Error("Mangler token");
+
+      window.location.replace("/go?t=" + encodeURIComponent(data.token));
+    } catch (err) {
+      console.error("Redirect feilet:", err);
+    }
+  }
+
+  if (Date.now() >= launchTime) {
+    goSecret();
+  }
 </script>
 
+
+
+
+  
 <style>
   :root{
     --gold:#d4af37;

@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/go", "destination": "/api/go" },
+    { "source": "/nysgjerrig", "destination": "/api/nysgjerrig" }
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "includeFiles": "protected/**"
+    }
+  }
+}

@@ -1,470 +1,454 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="no">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.77">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magiske Timer 2026 | Bergen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --border: rgba(212, 175, 55, 0.3);
+            --dealer-bg: #e2e8f0; 
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigasjon */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.85rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
+                        url('https://images.unsplash.com/photo-1504194906613-324209869635?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--gold);
+        }
+
+        .hero-location {
+            font-weight: 900;
+            font-size: clamp(2rem, 8vw, 5rem);
+            color: var(--gold);
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+
+        h1 { 
+            font-weight: 900; 
+            font-size: clamp(3.5rem, 15vw, 10rem); 
+            margin: 0; 
+            color: var(--light); 
+            text-transform: uppercase; 
+            letter-spacing: -5px; 
+            line-height: 0.85; 
+        }
+
+        /* Nedtelling */
+        #countdown-container { 
+            background: rgba(255, 255, 255, 0.05); 
+            padding: 30px; 
+            border-radius: 20px; 
+            border: 2px solid var(--gold); 
+            margin: 50px 0; 
+            backdrop-filter: blur(10px);
+        }
+        .timer { display: flex; gap: 30px; justify-content: center; }
+        .time-box span:first-child { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; color: var(--light); display: block; line-height: 1; }
+        .time-box span:last-child { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; font-weight: 800; letter-spacing: 1px; }
+
+        .content-wrapper { max-width: 1300px; margin: 0 auto; padding: 80px 20px; }
+
+        /* Seksjoner */
+        section { margin-bottom: 150px; scroll-margin-top: 100px; }
+        h2 { font-weight: 900; font-size: clamp(2.5rem, 10vw, 5.5rem); color: var(--gold); text-transform: uppercase; margin-bottom: 40px; letter-spacing: -2px; line-height: 1; text-align: center; }
+        
+        /* Layout-rader */
+        .info-row { display: flex; align-items: center; gap: 60px; }
+        .info-row.reverse { flex-direction: row-reverse; }
+        .image-box { flex: 2; text-align: center; }
+        .image-box img { width: 100%; border-radius: 15px; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .img-caption { margin-top: 20px; font-weight: 700; color: var(--gold); font-size: 1.1rem; text-align: center; }
+        .text-box { flex: 1; }
+        .text-box p { font-size: 1.4rem; opacity: 0.95; }
+
+        /* Smalere Kevin (1/3) */
+        .info-row.reverse .image-box { flex: 0.7; max-width: 300px; }
+        .info-row.reverse .text-box { flex: 2.3; }
+
+        /* VIDEO SEKSJON */
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px; 
+            max-width: 866px; 
+            margin: 50px auto; 
+        }
+        .video-container { 
+            width: 100%; 
+            border-radius: 15px; 
+            border: 2px solid var(--gold); 
+            overflow: hidden; 
+            background: #000; 
+            aspect-ratio: 16/9; 
+            position: relative; 
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-placeholder { 
+            height: 100%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: var(--gold); 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            text-align: center; 
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Artist Grid */
+        .image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .grid-item { text-align: center; display: flex; flex-direction: column; }
+        .grid-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); transition: 0.4s; }
+        .grid-item img:hover { transform: translateY(-10px); border-color: var(--gold); }
+        .artist-desc { margin-top: 15px; font-weight: 700; color: var(--gold); font-size: 1rem; line-height: 1.4; padding: 0 10px; }
+
+        /* DEALERE */
+        .dealer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .dealer-item {
+            background: var(--dealer-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.1);
+            text-align: center;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+        .dealer-img { max-width: 100%; max-height: 60px; object-fit: contain !important; }
+
+        /* Program */
+        .program-grid { display: flex; gap: 20px; margin-top: 40px; }
+        .program-day { flex: 1; background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border); }
+        .program-day h3 { font-weight: 900; color: var(--gold); font-size: 2.2rem; border-bottom: 4px solid var(--gold); padding-bottom: 10px; margin-top: 0; text-transform: uppercase; }
+        .schedule-list { list-style: none; padding: 0; }
+        .schedule-item { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .schedule-time { font-weight: 900; color: var(--gold); display: block; font-size: 1.1rem; }
+
+        /* Praktisk Info */
+        .practical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .practical-item { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border); }
+        .practical-item h3 { color: var(--gold); text-transform: uppercase; margin-top: 0; font-size: 1.5rem; }
+        .weather-container { border-radius: 10px; overflow: hidden; margin-top: 15px; min-height: 250px; }
+
+        /* Påmelding */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
+        .price-card { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 40px 30px; border-radius: 20px; text-align: center; display: flex; flex-direction: column; transition: 0.3s; }
+        .price-card h4 { font-size: 1.3rem; margin: 0; color: var(--gold); text-transform: uppercase; font-weight: 900; }
+        .price-card .amount { font-size: 3rem; font-weight: 900; margin: 20px 0; letter-spacing: -1px; }
+        .btn-reg { background: var(--gold); color: var(--dark); border: none; padding: 15px; font-weight: 900; text-transform: uppercase; border-radius: 8px; cursor: pointer; width: 100%; transition: 0.3s; font-size: 1.1rem; margin-top: auto; }
+
+        /* MODAL */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); }
+        .modal-content { background: var(--dark); margin: 5% auto; padding: 50px; border: 3px solid var(--gold); width: 90%; max-width: 500px; border-radius: 20px; position: relative; }
+        .modal-content input { width: 100%; padding: 15px; margin: 10px 0 20px 0; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white; border-radius: 8px; box-sizing: border-box; }
+        .close { position: absolute; right: 25px; top: 15px; color: white; font-size: 35px; cursor: pointer; }
+
+        footer { padding: 80px 20px; background: #020617; text-align: center; border-top: 1px solid #1e293b; }
+        .footer-logo { max-width: 180px; margin-bottom: 25px; filter: brightness(1.5); }
+
+        @media (max-width: 1100px) { 
+            .info-row, .info-row.reverse, .program-grid, .video-grid { flex-direction: column; } 
+            .image-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="no"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Magiske Timer 2026 | Bergen&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--gold: #d4af37;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--dark: #0f172a;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--light: #f8fafc;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--border: rgba(212, 175, 55, 0.3);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--dealer-bg: #e2e8f0;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--dark);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--light);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>scroll-behavior: smooth;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Navigasjon */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>nav {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: sticky;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(15, 23, 42, 0.95);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1000;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(10px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>nav a {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--light);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.85rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 1px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Header */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)),<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>url('https://images.unsplash.com/photo-1504194906613-324209869635?q=80&amp;w=2070&amp;auto=format&amp;fit=crop');<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-size: cover;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-position: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-height: 80vh;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 60px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 5px solid var(--gold);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero-location {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: clamp(2rem, 8vw, 5rem);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--gold);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: -2px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>h1 {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: clamp(3.5rem, 15vw, 10rem);<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--light);<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: -5px;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 0.85;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Nedtelling */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>#countdown-container {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.05);<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid var(--gold);<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 50px 0;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(10px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.timer { display: flex; gap: 30px; justify-content: center; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.time-box span:first-child { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; color: var(--light); display: block; line-height: 1; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.time-box span:last-child { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; font-weight: 800; letter-spacing: 1px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.content-wrapper { max-width: 1300px; margin: 0 auto; padding: 80px 20px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Seksjoner */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>section { margin-bottom: 150px; scroll-margin-top: 100px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h2 { font-weight: 900; font-size: clamp(2.5rem, 10vw, 5.5rem); color: var(--gold); text-transform: uppercase; margin-bottom: 40px; letter-spacing: -2px; line-height: 1; text-align: center; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Layout-rader */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.info-row { display: flex; align-items: center; gap: 60px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.info-row.reverse { flex-direction: row-reverse; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.image-box { flex: 2; text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.image-box img { width: 100%; border-radius: 15px; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.img-caption { margin-top: 20px; font-weight: 700; color: var(--gold); font-size: 1.1rem; text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.text-box { flex: 1; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.text-box p { font-size: 1.4rem; opacity: 0.95; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Smalere Kevin (1/3) */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.info-row.reverse .image-box { flex: 0.7; max-width: 300px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.info-row.reverse .text-box { flex: 2.3; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* VIDEO SEKSJON */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.video-grid {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: grid;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(2, 1fr);<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 30px;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 866px;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 50px auto;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.video-container {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid var(--gold);<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #000;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>aspect-ratio: 16/9;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.video-placeholder {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--gold);<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 2px;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.05);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Artist Grid */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.grid-item { text-align: center; display: flex; flex-direction: column; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.grid-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); transition: 0.4s; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.grid-item img:hover { transform: translateY(-10px); border-color: var(--gold); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artist-desc { margin-top: 15px; font-weight: 700; color: var(--gold); font-size: 1rem; line-height: 1.4; padding: 0 10px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* DEALERE */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.dealer-grid {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(auto-fit, minmax(150px, 200px));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.dealer-item {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--dealer-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.dealer-img { max-width: 100%; max-height: 60px; object-fit: contain !important; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Program */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.program-grid { display: flex; gap: 20px; margin-top: 40px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.program-day { flex: 1; background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.program-day h3 { font-weight: 900; color: var(--gold); font-size: 2.2rem; border-bottom: 4px solid var(--gold); padding-bottom: 10px; margin-top: 0; text-transform: uppercase; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.schedule-list { list-style: none; padding: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.schedule-item { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.schedule-time { font-weight: 900; color: var(--gold); display: block; font-size: 1.1rem; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Praktisk Info */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.practical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.practical-item { background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.practical-item h3 { color: var(--gold); text-transform: uppercase; margin-top: 0; font-size: 1.5rem; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.weather-container { border-radius: 10px; overflow: hidden; margin-top: 15px; min-height: 250px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Påmelding */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.price-card { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 40px 30px; border-radius: 20px; text-align: center; display: flex; flex-direction: column; transition: 0.3s; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.price-card h4 { font-size: 1.3rem; margin: 0; color: var(--gold); text-transform: uppercase; font-weight: 900; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.price-card .amount { font-size: 3rem; font-weight: 900; margin: 20px 0; letter-spacing: -1px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-reg { background: var(--gold); color: var(--dark); border: none; padding: 15px; font-weight: 900; text-transform: uppercase; border-radius: 8px; cursor: pointer; width: 100%; transition: 0.3s; font-size: 1.1rem; margin-top: auto; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* MODAL */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.modal-content { background: var(--dark); margin: 5% auto; padding: 50px; border: 3px solid var(--gold); width: 90%; max-width: 500px; border-radius: 20px; position: relative; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.modal-content input { width: 100%; padding: 15px; margin: 10px 0 20px 0; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white; border-radius: 8px; box-sizing: border-box; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.close { position: absolute; right: 25px; top: 15px; color: white; font-size: 35px; cursor: pointer; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>footer { padding: 80px 20px; background: #020617; text-align: center; border-top: 1px solid #1e293b; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-logo { max-width: 180px; margin-bottom: 25px; filter: brightness(1.5); }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 1100px) {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.info-row, .info-row.reverse, .program-grid, .video-grid { flex-direction: column; }<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.image-grid { grid-template-columns: 1fr 1fr; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="#"&gt;Hjem&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="#Artister"&gt;Artister&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="#Program"&gt;Program&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="#Praktisk"&gt;Praktisk&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="#Dealers"&gt;Dealere&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="#Paamelding"&gt;Påmelding&lt;/a&gt;</p>
-<p class="p1">&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-location"&gt;BERGEN 18.–20. SEPT 2026&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Magiske Timer&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="countdown-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="timer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="time-box"&gt;&lt;span id="days"&gt;00&lt;/span&gt;&lt;span&gt;Dager&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="time-box"&gt;&lt;span id="hours"&gt;00&lt;/span&gt;&lt;span&gt;Timer&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="time-box"&gt;&lt;span id="minutes"&gt;00&lt;/span&gt;&lt;span&gt;Min&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="time-box"&gt;&lt;span id="seconds"&gt;00&lt;/span&gt;&lt;span&gt;Sek&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;main class="content-wrapper"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="image-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="Boje.jpeg" alt="Boje Hoset"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="img-caption"&gt;Boje Hoset er kanskje en av landets mest aktive tryllekunstnere. Nå kommer han til Bergen.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Magi i Bergen&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Høsten 2026 forvandles Bergen til Norges mest magiske by. Vi inviterer til en kongress med åpne trylleshow, lukkede lectures og unike opplevelser. Alt med artister og lectures fra MCNs egne rekker. Vi kan se utover, men vi har mye godt internt også. Nå kan du virkelig lære noe nytt og møte andre trylleinteresserte.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info-row reverse"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="image-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="Kevin.jpg" alt="Kevin Lunde"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="img-caption"&gt;Kevin Lunde leder galla-showet på lørdag.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Junior-NM&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;I løpet av helgen arrangeres Junior-NM i trylling. Dette er selve ryggraden i norsk magi og juniorene skal la magien leve i årene som kommer. Et flott show som er åpent for alle som kjøper billett... Se landets beste talenter konkurrere om de gjeveste titlene.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;center&gt;&lt;h2&gt;Magiske Glimt&lt;/h2&gt;&lt;/center&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="video-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="video-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;iframe src="https://player.vimeo.com/video/1169931420?h=da06056731&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1" allow="autoplay; fullscreen" allowfullscreen&gt;&lt;/iframe&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="video-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="video-placeholder"&gt;Neste artist kommer snart...&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="Artister"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Artister&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="image-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="Rune.jpg" alt="Rune Carlsen"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artist-desc"&gt;&lt;strong&gt;Rune Carlsen&lt;/strong&gt; er kanskje Norges mest meritterte tryllekunstner med utmerkelser fra tv-opptredener og Magic Castle.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="toringe.jpg" alt="Tor Inge Ulveseth"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artist-desc"&gt;&lt;strong&gt;Tor Inge Ulveseth&lt;/strong&gt; er et kjent fjes i Bergen, både i trylle- og stand-upmiljøet.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="hedne.jpg" alt="Hednè"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artist-desc"&gt;&lt;strong&gt;Hednè&lt;/strong&gt; viser deler av sitt trylleshow POFF – en visuell fest for øyet.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="geir.jpg" alt="Geirini"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artist-desc"&gt;&lt;strong&gt;Geirini&lt;/strong&gt; kommer til å vise flere kaniner enn hatter i sitt elleville show.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="john.jpg" alt="John Inge Johansen"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artist-desc"&gt;&lt;strong&gt;John Inge Johansen&lt;/strong&gt; deltar på dinnershow med sin unike stil.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="pedro.jpg" alt="Pedro Dias"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artist-desc"&gt;&lt;strong&gt;Pedro Dias&lt;/strong&gt; har doktorgrad i filosofi og får folk til å lure på hva som er sant.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="noel.jpg" alt="Noel Gullerud"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artist-desc"&gt;&lt;strong&gt;Noel Gullerud&lt;/strong&gt; har lang fartstid fra han var junior i Bergen til store scener i dag.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="harald.jpg" alt="Harald Olsen"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artist-desc"&gt;&lt;strong&gt;Harald Olsen&lt;/strong&gt; tryller ofte i Bergen med overraskende vendinger.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="Praktisk"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Praktisk Informasjon&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="practical-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="practical-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Sted &amp; Hotell&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Vi jobber for tiden med å ferdigstille avtaler for spillested og hotellovernatting sentralt i Bergen. Vi kommer snart tilbake med detaljert informasjon.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="practical-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Reise&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Bergen er lett tilgjengelig med fly, tog (Bergensbanen) og buss. Vi anbefaler å bestille reise i god tid for best mulig priser.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="practical-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Været i Bergen&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="weather-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;iframe src="https://www.yr.no/nb/innhold/1-92416/card.html" width="100%" height="100%" frameborder="0" scrolling="no" style="min-height: 250px;"&gt;&lt;/iframe&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="Program"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Program&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="program-day"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Fredag&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="schedule-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;17:00–18:30&lt;/span&gt;&lt;span&gt;Registrering/innsjekk &amp; Dealerne åpner&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;18:30–18:40&lt;/span&gt;&lt;span&gt;Offisiell åpning&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;18:40-19:40&lt;/span&gt;&lt;strong&gt;Dealershow med det nyeste nye&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;19:40–22:00&lt;/span&gt;&lt;span&gt;Matstafett &amp; Tablehopping med closeupshow på tre steder&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;22:00-22:45&lt;/span&gt;&lt;span&gt;Utdrag fra Hednés POFF&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;23:00&lt;/span&gt;&lt;span&gt;Late Night Magic&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="program-day"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Lørdag&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="schedule-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;10:00–11:00&lt;/span&gt;&lt;strong&gt;Dealerne har åpent&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;11:00–11:45&lt;/span&gt;&lt;strong&gt;To paralelle seminarer: Tech og Filosofi: undring eller magi&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;12:30–13:30&lt;/span&gt;&lt;strong&gt;Seminarer KORT og GODT&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;14:30–15:30&lt;/span&gt;&lt;strong&gt;Panelet: Hvorfor er trylling så nedprioritert hos eventmakere?&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;15:30-16:45&lt;/span&gt;&lt;strong&gt;Mingling og shopping hos dealerne&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;16:45–17:45&lt;/span&gt;&lt;strong&gt;Junior-NM&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;19:00–22:30&lt;/span&gt;&lt;strong&gt;Dinner Show&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="program-day"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;Søndag&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="schedule-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;11:00–12:00&lt;/span&gt;&lt;strong&gt;Seminar: TBA&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;12:00–13:00&lt;/span&gt;&lt;strong&gt;Program - show&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;13:45–15:00&lt;/span&gt;&lt;strong&gt;Familieforestilling&lt;/strong&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="schedule-item"&gt;&lt;span class="schedule-time"&gt;15:30&lt;/span&gt;&lt;span&gt;Avslutning&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="Dealers"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Dealere&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="dealer-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="dealer-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://www.pegani.dk/da" target="_blank"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="pegani_logo_sort.webp" alt="Pegani" class="dealer-img"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="dealer-item"&gt;&lt;div style="color:#64748b; font-weight:700;"&gt;TBA&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="dealer-item"&gt;&lt;div style="color:#64748b; font-weight:700;"&gt;TBA&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="Paamelding"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Påmelding åpner 15. mars&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="pricing-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="price-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Early Bird Senior&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Fram til 15. mai&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="amount"&gt;2095,-&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn-reg" onclick="openModal('Early Bird Senior')"&gt;Åpner snart&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="price-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Senior&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Fullpris etter 15. mai&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="amount"&gt;2295,-&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn-reg" onclick="openModal('Senior')"&gt;Åpner snart&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="price-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Junior&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;For medlemmer under 18 år&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="amount"&gt;1400,-&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn-reg" onclick="openModal('Junior')"&gt;Åpner snart&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="price-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Ledsager&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;For ikke-tryllende følge&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="amount"&gt;400,-&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn-reg" onclick="openModal('Ledsager')"&gt;Åpner snart&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p1">&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div id="regModal" class="modal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="modal-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="close" onclick="closeModal()"&gt;&amp;times;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 id="ticketType"&gt;Påmelding&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;form action="https://formspree.io/f/mnjbkyld" method="POST"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="hidden" name="Billettype" id="hiddenTicket"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" name="Navn" required placeholder="Fullt navn"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="email" name="Epost" required placeholder="E-postadresse"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="tel" name="Telefon" required placeholder="Telefonnummer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button type="submit" class="btn-reg"&gt;Send påmelding&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;img src="mcn.svg" alt="Magiske Cirkel Norge" class="footer-logo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="font-weight:900; color:var(--gold); letter-spacing:2px; font-size:0.8rem; text-transform:uppercase;"&gt;MAGISKE TIMER 2026 | BERGEN&lt;/div&gt;</p>
-<p class="p1">&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>function openModal(type) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('regModal').style.display = 'block';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('ticketType').innerText = type;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('hiddenTicket').value = type;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>function closeModal() { document.getElementById('regModal').style.display = 'none'; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>window.onclick = function(event) { if (event.target == document.getElementById('regModal')) closeModal(); }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>const countDownDate = new Date("Sep 18, 2026 17:00:00").getTime();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>setInterval(function() {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const now = new Date().getTime();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const distance = countDownDate - now;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}, 1000);</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<nav>
+    <a href="#">Hjem</a>
+    <a href="#Artister">Artister</a>
+    <a href="#Program">Program</a>
+    <a href="#Praktisk">Praktisk</a>
+    <a href="#Dealers">Dealere</a>
+    <a href="#Paamelding">Påmelding</a>
+</nav>
+
+<header>
+    <div class="hero-location">BERGEN 18.–20. SEPT 2026</div>
+    <h1>Magiske Timer</h1>
+    <div id="countdown-container">
+        <div class="timer">
+            <div class="time-box"><span id="days">00</span><span>Dager</span></div>
+            <div class="time-box"><span id="hours">00</span><span>Timer</span></div>
+            <div class="time-box"><span id="minutes">00</span><span>Min</span></div>
+            <div class="time-box"><span id="seconds">00</span><span>Sek</span></div>
+        </div>
+    </div>
+</header>
+
+<main class="content-wrapper">
+
+    <section>
+        <div class="info-row">
+            <div class="image-box">
+                <img src="Boje.jpeg" alt="Boje Hoset">
+                <div class="img-caption">Boje Hoset er kanskje en av landets mest aktive tryllekunstnere. Nå kommer han til Bergen.</div>
+            </div>
+            <div class="text-box">
+                <h2>Magi i Bergen</h2>
+                <p>Høsten 2026 forvandles Bergen til Norges mest magiske by. Vi inviterer til en kongress med åpne trylleshow, lukkede lectures og unike opplevelser. Alt med artister og lectures fra MCNs egne rekker. Vi kan se utover, men vi har mye godt internt også. Nå kan du virkelig lære noe nytt og møte andre trylleinteresserte.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="info-row reverse">
+            <div class="image-box">
+                <img src="Kevin.jpg" alt="Kevin Lunde">
+                <div class="img-caption">Kevin Lunde leder galla-showet på lørdag.</div>
+            </div>
+            <div class="text-box">
+                <h2>Junior-NM</h2>
+                <p>I løpet av helgen arrangeres Junior-NM i trylling. Dette er selve ryggraden i norsk magi og juniorene skal la magien leve i årene som kommer. Et flott show som er åpent for alle som kjøper billett... Se landets beste talenter konkurrere om de gjeveste titlene.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <center><h2>Magiske Glimt</h2></center>
+        <div class="video-grid">
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/1169931420?h=da06056731&autoplay=1&loop=1&muted=1&background=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <div class="video-placeholder">Neste artist kommer snart...</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Artister">
+        <h2>Artister</h2>
+        <div class="image-grid">
+            <div class="grid-item">
+                <img src="Rune.jpg" alt="Rune Carlsen">
+                <div class="artist-desc"><strong>Rune Carlsen</strong> er kanskje Norges mest meritterte tryllekunstner med utmerkelser fra tv-opptredener og Magic Castle.</div>
+            </div>
+            <div class="grid-item">
+                <img src="toringe.jpg" alt="Tor Inge Ulveseth">
+                <div class="artist-desc"><strong>Tor Inge Ulveseth</strong> er et kjent fjes i Bergen, både i trylle- og stand-upmiljøet.</div>
+            </div>
+            <div class="grid-item">
+                <img src="hedne.jpg" alt="Hednè">
+                <div class="artist-desc"><strong>Hednè</strong> viser deler av sitt trylleshow POFF – en visuell fest for øyet.</div>
+            </div>
+            <div class="grid-item">
+                <img src="geir.jpg" alt="Geirini">
+                <div class="artist-desc"><strong>Geirini</strong> kommer til å vise flere kaniner enn hatter i sitt elleville show.</div>
+            </div>
+            <div class="grid-item">
+                <img src="john.jpg" alt="John Inge Johansen">
+                <div class="artist-desc"><strong>John Inge Johansen</strong> deltar på dinnershow med sin unike stil.</div>
+            </div>
+            <div class="grid-item">
+                <img src="pedro.jpg" alt="Pedro Dias">
+                <div class="artist-desc"><strong>Pedro Dias</strong> har doktorgrad i filosofi og får folk til å lure på hva som er sant.</div>
+            </div>
+            <div class="grid-item">
+                <img src="noel.jpg" alt="Noel Gullerud">
+                <div class="artist-desc"><strong>Noel Gullerud</strong> har lang fartstid fra han var junior i Bergen til store scener i dag.</div>
+            </div>
+            <div class="grid-item">
+                <img src="harald.jpg" alt="Harald Olsen">
+                <div class="artist-desc"><strong>Harald Olsen</strong> tryller ofte i Bergen med overraskende vendinger.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Praktisk">
+        <h2>Praktisk Informasjon</h2>
+        <div class="practical-grid">
+            <div class="practical-item">
+                <h3>Sted & Hotell</h3>
+                <p>Vi jobber for tiden med å ferdigstille avtaler for spillested og hotellovernatting sentralt i Bergen. Vi kommer snart tilbake med detaljert informasjon. Ledsagere må betale ekstra for middagsopplevelser (De er inkludert i kongresskortet.)</p>
+            </div>
+            <div class="practical-item">
+                <h3>Reise</h3>
+                <p>Bergen er lett tilgjengelig med fly, tog (Bergensbanen) og buss. Vi anbefaler å bestille reise i god tid for best mulig priser.</p>
+            </div>
+            <div class="practical-item">
+                <h3>Været i Bergen</h3>
+                <div class="weather-container">
+                    <iframe src="https://www.yr.no/nb/innhold/1-92416/card.html" width="100%" height="100%" frameborder="0" scrolling="no" style="min-height: 250px;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Program">
+        <h2>Program</h2>
+        <div class="program-grid">
+            <div class="program-day">
+                <h3>Fredag - programmet er et eksempel</h3>
+                <div class="schedule-list">
+                    <div class="schedule-item"><span class="schedule-time">17:00–18:30</span><span>Registrering/innsjekk & Dealerne åpner</span></div>
+                    <div class="schedule-item"><span class="schedule-time">18:30–18:40</span><span>Offisiell åpning</span></div>
+                    <div class="schedule-item"><span class="schedule-time">18:40-19:40</span><strong>Dealershow med det nyeste nye</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">19:40–22:00</span><span>Matstafett & Tablehopping med closeupshow på tre steder</span></div>
+                    <div class="schedule-item"><span class="schedule-time">22:00-22:45</span><span>Utdrag fra Hednés POFF</span></div>
+                    <div class="schedule-item"><span class="schedule-time">23:00</span><span>Late Night Magic</span></div>
+                </div>
+            </div>
+            <div class="program-day">
+                <h3>Lørdag - programmet er et eksempel</h3>
+                <div class="schedule-list">
+                    <div class="schedule-item"><span class="schedule-time">10:00–11:00</span><strong>Dealerne har åpent</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">11:00–11:45</span><strong>To paralelle seminarer: Tech og Filosofi: undring eller magi</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">12:30–13:30</span><strong>Seminarer KORT og GODT</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">14:30–15:30</span><strong>Panelet: Hvorfor er trylling så nedprioritert hos eventmakere?</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">15:30-16:45</span><strong>Mingling og shopping hos dealerne</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">16:45–17:45</span><strong>Junior-NM</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">19:00–22:30</span><strong>Dinner Show</strong></div>
+                </div>
+            </div>
+            <div class="program-day">
+                <h3>Søndag - programmet er et eksempel</h3>
+                <div class="schedule-list">
+                    <div class="schedule-item"><span class="schedule-time">11:00–12:00</span><strong>Seminar: TBA</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">12:00–13:00</span><strong>Program - show</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">13:45–15:00</span><strong>Familieforestilling</strong></div>
+                    <div class="schedule-item"><span class="schedule-time">15:30</span><span>Avslutning</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Dealers">
+        <h2>Dealere</h2>
+        <div class="dealer-grid">
+            <div class="dealer-item">
+                <a href="https://www.pegani.dk/da" target="_blank">
+                    <img src="pegani_logo_sort.webp" alt="Pegani" class="dealer-img">
+                </a>
+            </div>
+            <div class="dealer-item"><div style="color:#64748b; font-weight:700;">TBA</div></div>
+            <div class="dealer-item"><div style="color:#64748b; font-weight:700;">TBA</div></div>
+        </div>
+    </section>
+
+    <section id="Paamelding">
+        <h2>Påmelding åpner 15. mars</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h4>Early Bird Senior</h4>
+                <p>Fram til 15. mai</p>
+                <div class="amount">2095,-</div>
+                <button class="btn-reg" onclick="openModal('Early Bird Senior')">Åpner snart</button>
+            </div>
+            <div class="price-card">
+                <h4>Senior</h4>
+                <p>Fullpris etter 15. mai</p>
+                <div class="amount">2295,-</div>
+                <button class="btn-reg" onclick="openModal('Senior')">Åpner snart</button>
+            </div>
+            <div class="price-card">
+                <h4>Junior</h4>
+                <p>For medlemmer under 18 år</p>
+                <div class="amount">1400,-</div>
+                <button class="btn-reg" onclick="openModal('Junior')">Åpner snart</button>
+            </div>
+            <div class="price-card">
+                <h4>Ledsager</h4>
+                <p>For ikke-tryllende følge</p>
+                <div class="amount">0,-,-</div>
+                <button class="btn-reg" onclick="openModal('Ledsager')">Åpner snart</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="regModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="ticketType">Påmelding</h3>
+        <form action="https://formspree.io/f/mnjbkyld" method="POST">
+            <input type="hidden" name="Billettype" id="hiddenTicket">
+            <input type="text" name="Navn" required placeholder="Fullt navn">
+            <input type="email" name="Epost" required placeholder="E-postadresse">
+            <input type="tel" name="Telefon" required placeholder="Telefonnummer">
+            <button type="submit" class="btn-reg">Send påmelding</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <img src="mcn.svg" alt="Magiske Cirkel Norge" class="footer-logo">
+    <div style="font-weight:900; color:var(--gold); letter-spacing:2px; font-size:0.8rem; text-transform:uppercase;">MAGISKE TIMER 2026 | BERGEN</div>
+</footer>
+
+<script>
+    function openModal(type) {
+        document.getElementById('regModal').style.display = 'block';
+        document.getElementById('ticketType').innerText = type;
+        document.getElementById('hiddenTicket').value = type;
+    }
+    function closeModal() { document.getElementById('regModal').style.display = 'none'; }
+    window.onclick = function(event) { if (event.target == document.getElementById('regModal')) closeModal(); }
+
+    const countDownDate = new Date("Sep 18, 2026 17:00:00").getTime();
+    setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+        document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+        document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+        document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+    }, 1000);
+</script>
 </body>
 </html>

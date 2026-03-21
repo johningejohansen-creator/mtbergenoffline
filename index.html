@@ -14,6 +14,32 @@
             --dealer-bg: #e2e8f0;
         }
 
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  background: var(--gold);
+  color: var(--dark);
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border);
+}
+
+.ticker-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker-scroll 20s linear infinite;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
         * {
             box-sizing: border-box;
         }
@@ -26,7 +52,11 @@
             line-height: 1.6;
             scroll-behavior: smooth;
         }
-
+<div class="ticker">
+  <div class="ticker-content">
+    ✨ Sist oppdatert: 21. mars 2026 — Påmelding er åpen • Nye artister legges ut fortløpende • Velkommen til Bergen!
+  </div>
+</div>
         nav {
             position: sticky;
             top: 0;

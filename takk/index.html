@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Takk for påmeldingen | Magiske Timer 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #d4af37;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --border: rgba(212, 175, 55, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background:
+        linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.96)),
+        url('https://images.unsplash.com/photo-1504194906613-324209869635?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--light);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 0.85rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px 100px;
+    }
+
+    .thanks-card {
+      background: rgba(15, 23, 42, 0.88);
+      border: 2px solid var(--gold);
+      border-radius: 24px;
+      padding: 40px 28px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-wrap {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo-wrap img {
+      max-width: 180px;
+      width: 100%;
+      height: auto;
+      display: inline-block;
+    }
+
+    .eyebrow {
+      text-align: center;
+      color: var(--gold);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-weight: 900;
+      font-size: clamp(2.3rem, 8vw, 4.8rem);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 0.95;
+      margin: 0 0 30px 0;
+      text-align: center;
+      color: var(--light);
+    }
+
+    .lead {
+      font-size: 1.3rem;
+      color: var(--light);
+      margin-bottom: 28px;
+    }
+
+    .message p {
+      font-size: 1.15rem;
+      margin: 0 0 22px 0;
+      opacity: 0.96;
+    }
+
+    .message strong {
+      color: var(--gold);
+    }
+
+    .welcome {
+      margin-top: 35px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .actions {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      border: 2px solid var(--gold);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid var(--border);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    footer {
+      padding: 40px 20px 70px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      max-width: 160px;
+      margin-bottom: 20px;
+      filter: brightness(1.5);
+    }
+
+    .footer-text {
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .footer-credit {
+      margin-top: 15px;
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 700px) {
+      .thanks-card {
+        padding: 30px 20px;
+      }
+
+      .message p {
+        font-size: 1.05rem;
+      }
+
+      .lead {
+        font-size: 1.15rem;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 0.72rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/">Hjem</a>
+    <a href="/#Artister">Artister</a>
+    <a href="/#Program">Program</a>
+    <a href="/#Praktisk">Praktisk</a>
+    <a href="/#Dealers">Dealere</a>
+    <a href="/#Paamelding">Påmelding</a>
+  </nav>
+
+  <main class="page-wrap">
+    <section class="thanks-card">
+      <div class="logo-wrap">
+        <img src="/mcn.png" alt="Magiske Cirkel Norge">
+      </div>
+
+      <div class="eyebrow">Magiske Timer 2026</div>
+      <h1>Takk for påmeldingen</h1>
+
+      <div class="message">
+        <p class="lead">
+          Så hyggelig at du kommer til Bergen og til Magiske Timer.
+          <br>
+          Vi har registrert din påmelding, og faktura for deltakeravgiften kommer til deg etter 1. mai.
+        </p>
+
+        <p>
+          Hotellavtalene er under forhandling, vi beklager at vi ikke har fått dem endelig satt men det er rett rundt hjørnet.
+        </p>
+
+        <p>
+          Dersom du har markert at du har en ikketryllende ledsager (voksen), vil du etterhvert få informasjon om prisen for middag og show.
+        </p>
+
+        <p>
+          Dersom du er ledsager for en junior, må du ikke betale for kongresskort, men du må betale for middag. Showene får du på kjøpet fordi du er med på å bidra til at magien får vokse i framtiden.
+        </p>
+
+        <p>
+          Vi jobber med å få på plass spennende foredragsholdere og god magi i Vestlandets hovedstad.
+        </p>
+      </div>
+
+      <div class="welcome">Velkommen</div>
+
+      <div class="actions">
+        <a href="/" class="btn btn-primary">Tilbake til forsiden</a>
+        <a href="/#Paamelding" class="btn btn-secondary">Se påmelding</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="/mcn.png" alt="Magiske Cirkel Norge" class="footer-logo">
+    <div class="footer-text">Magiske Timer 2026 | Bergen</div>
+    <div class="footer-credit">Web-design JIJ26</div>
+  </footer>
+
+</body>
+</html>

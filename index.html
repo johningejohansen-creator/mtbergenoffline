@@ -58,29 +58,21 @@
       filter: brightness(1.5);
     }
 
-    .login-box {
+    .member-access {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
-    .login-box input {
-      padding: 12px 14px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border);
-      color: var(--light);
-      border-radius: 10px;
-      min-width: 220px;
-      box-sizing: border-box;
+    .member-access-text {
+      font-size: 0.9rem;
+      color: rgba(248, 250, 252, 0.82);
+      font-weight: 700;
     }
 
-    .login-box input::placeholder {
-      color: rgba(248,250,252,0.72);
-    }
-
-    .login-box button {
+    .member-access-btn {
       background: var(--gold);
       color: var(--dark);
       border: none;
@@ -89,20 +81,13 @@
       font-weight: 900;
       text-transform: uppercase;
       cursor: pointer;
-    }
-
-    .login-message {
-      width: 100%;
-      min-height: 18px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-align: right;
-      color: #fca5a5;
+      text-decoration: none;
+      display: inline-block;
     }
 
     nav {
       position: sticky;
-      top: 69px;
+      top: 61px;
       background: rgba(15, 23, 42, 0.95);
       border-bottom: 1px solid var(--border);
       z-index: 1000;
@@ -315,20 +300,13 @@
         align-items: stretch;
       }
 
-      .topbar-left {
+      .topbar-left,
+      .member-access {
         justify-content: center;
-      }
-
-      .login-box {
-        justify-content: center;
-      }
-
-      .login-message {
-        text-align: center;
       }
 
       nav {
-        top: 120px;
+        top: 110px;
       }
     }
 
@@ -338,6 +316,7 @@
       .content-wrapper { padding: 60px 16px; }
       section { margin-bottom: 100px; }
       .image-grid { grid-template-columns: 1fr; }
+      .member-access-text { text-align: center; }
     }
   </style>
 </head>
@@ -349,11 +328,10 @@
         <img src="mcn.svg" alt="MCN">
         <span>Medlemsinnlogging</span>
       </div>
-      <form class="login-box" id="memberLoginForm">
-        <input id="memberPassword" type="password" placeholder="Passord for medlemmer" required>
-        <button type="submit">Logg inn</button>
-        <div class="login-message" id="loginMessage"></div>
-      </form>
+      <div class="member-access">
+        <div class="member-access-text">Medlemmer går videre til beskyttet område her.</div>
+        <a class="member-access-btn" href="/protected/">Gå til medlemsområde</a>
+      </div>
     </div>
   </div>
 
@@ -388,7 +366,7 @@
         </div>
         <div class="text-box">
           <h2>Magi i Bergen</h2>
-          <p>Høsten 2026 forvandles Bergen til Norges mest magiske by. Magiske Cirkel Norge inviterer til en kongress med flere åpne trylleshow og unike opplevelser. Programmet og artistene samt hvilke scener som skal brukes oppdateres her i tiden framover. /p>
+          <p>Høsten 2026 forvandles Bergen til Norges mest magiske by. Vi inviterer til en kongress med åpne trylleshow, lukkede lectures og unike opplevelser. Alt med artister og lectures fra MCNs egne rekker. Vi kan se utover, men vi har mye godt internt også. Nå kan du virkelig lære noe nytt og møte andre trylleinteresserte.</p>
         </div>
       </div>
     </section>
@@ -401,7 +379,7 @@
         </div>
         <div class="text-box">
           <h2>Junior-NM</h2>
-          <p>I løpet av helgen arrangeres Junior-NM i trylling. Dette er selve ryggraden i norsk magi og juniorene skal la magien leve i årene som kommer. Et flott show som er åpent med billettkjøp for alle. Se landets beste talenter konkurrere om de gjeveste titlene.</p>
+          <p>I løpet av helgen arrangeres Junior-NM i trylling. Dette er selve ryggraden i norsk magi og juniorene skal la magien leve i årene som kommer. Et flott show som er åpent for alle som kjøper billett... Se landets beste talenter konkurrere om de gjeveste titlene.</p>
         </div>
       </div>
     </section>
@@ -441,24 +419,6 @@
   </footer>
 
   <script>
-    const MEMBER_PASSWORD = "BYTT_UT_MED_DITT_PASSORD";
-    const MEMBER_TARGET = "/protected/";
-
-    document.getElementById("memberLoginForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const entered = document.getElementById("memberPassword").value;
-      const message = document.getElementById("loginMessage");
-
-      if (entered === MEMBER_PASSWORD) {
-        message.style.color = "#86efac";
-        message.textContent = "Passord godkjent. Sender deg videre...";
-        setTimeout(() => { window.location.href = MEMBER_TARGET; }, 300);
-      } else {
-        message.style.color = "#fca5a5";
-        message.textContent = "Feil passord. Prøv igjen.";
-      }
-    });
-
     const countDownDate = new Date("Sep 18, 2026 17:00:00").getTime();
     setInterval(function() {
       const now = new Date().getTime();

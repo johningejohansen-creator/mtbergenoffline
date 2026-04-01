@@ -117,7 +117,7 @@ footer{padding:80px 20px;background:#020617;text-align:center;border-top:1px sol
 <section id="WorkshopOnsker"><div class="vote-card">
 <h3>Stem på workshops</h3>
 <p>Hjelp oss å forme programmet. Kryss av for workshopene du helst vil oppleve under Magiske Timer. Dette skjemaet er kun synlig for medlemmer.</p>
-<form action="https://formspree.io/f/xzdkvdge" method="POST">
+  <form id="workshopForm">
 <input type="hidden" name="Skjema" value="Workshop-ønsker">
 <div class="vote-form-meta">
 <input type="text" name="Navn" placeholder="Navn (valgfritt)">
@@ -217,6 +217,33 @@ const countDownDate=new Date("Sep 18, 2026 17:00:00").getTime();
 setInterval(function(){const now=new Date().getTime();const distance=countDownDate-now;document.getElementById("days").innerText=Math.max(0,Math.floor(distance/(1000*60*60*24))).toString().padStart(2,'0');document.getElementById("hours").innerText=Math.max(0,Math.floor((distance%(1000*60*60*24))/(1000*60*60))).toString().padStart(2,'0');document.getElementById("minutes").innerText=Math.max(0,Math.floor((distance%(1000*60*60))/(1000*60))).toString().padStart(2,'0');document.getElementById("seconds").innerText=Math.max(0,Math.floor((distance%(1000*60))/1000)).toString().padStart(2,'0');},1000);
 const form=document.getElementById("signupForm");const status=document.getElementById("status");
 form.addEventListener("submit",async function(e){e.preventDefault();status.innerText="Sender påmelding...";const data=new FormData(form);try{const response=await fetch("https://formspree.io/f/mnjbkyld",{method:"POST",body:data,headers:{"Accept":"application/json"}});if(response.ok){window.location.href="/takk/";}else{status.innerText="Noe gikk galt. Prøv igjen.";}}catch(error){status.innerText="Noe gikk galt. Sjekk nettverket og prøv igjen.";}})
+</script>
+  <script>
+const workshopForm = document.getElementById("workshopForm");
+
+if (workshopForm) {
+    workshopForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const data = new FormData(workshopForm);
+
+        try {
+            const response = await fetch("https://formspree.io/f/xzdkvdge", {
+                method: "POST",
+                body: data,
+                headers: { "Accept": "application/json" }
+            });
+
+            if (response.ok) {
+                window.location.href = "/protected/workshop-takk/";
+            } else {
+                alert("Noe gikk galt. Prøv igjen.");
+            }
+        } catch (error) {
+            alert("Noe gikk galt. Sjekk nettverket.");
+        }
+    });
+}
 </script>
 </body>
 </html>

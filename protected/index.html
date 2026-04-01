@@ -30,10 +30,18 @@ h2{font-weight:900;font-size:clamp(2.5rem,10vw,5.5rem);color:var(--gold);text-tr
 .text-box p{font-size:1.4rem;opacity:.95}
 .info-row.reverse .image-box{flex:.7;max-width:300px}
 .info-row.reverse .text-box{flex:2.3}
-.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;max-width:1200px;margin:50px auto}
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
 .video-container{width:100%;border-radius:15px;border:2px solid var(--gold);overflow:hidden;background:#000;aspect-ratio:16/9;position:relative}
 .video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
 .image-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px}
+  
 .grid-item{text-align:center;display:flex;flex-direction:column}
 .grid-item img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;border:1px solid var(--border);transition:.4s}
 .grid-item img:hover{transform:translateY(-10px);border-color:var(--gold)}
@@ -147,7 +155,43 @@ footer{padding:80px 20px;background:#020617;text-align:center;border-top:1px sol
 <p>Høsten 2026 forvandles Bergen til Norges mest magiske by. Vi inviterer til en kongress med åpne trylleshow, lukkede lectures og unike opplevelser. Alt med artister og lectures fra MCNs egne rekker. Vi kan se utover, men vi har mye godt internt også. Nå kan du virkelig lære noe nytt og møte andre trylleinteresserte. Der andre kongresser velger å lukke seg inn i et hotell, ønsker vi å ta hele byen i bruk.</p></div></div></section>
 <section><div class="info-row reverse"><div class="image-box"><img src="../Kevin.jpg" alt="Kevin Lunde"><div class="img-caption">Kevin Lunde leder galla-showet på lørdag.</div></div>
   <div class="text-box"><h2>Junior-NM</h2><p>I løpet av helgen arrangeres Junior-NM i trylling. Selve konkurransen dømmes etter de faste reglene for NM, og sjefdommer er Rune Carlsen. NM er åpnet for alle publikumere som lsøer billett, det er selvsagt inkludert i kongresskortet. Gjennomføringen av NM blir på en profesjonell scene med lyd og lys, har du som skal delta spesielle ønsker for akten din, det være seg kamera, røykmaskiner eller liknenede må vi avklare det på forhånd, du som melder deg på får en utfyllende mail som beskriver mulighetene. </p></div></div></section>
-<section><h2>Magiske Glimt</h2><div class="video-grid"><div class="video-container"><iframe src="https://player.vimeo.com/video/1169931420?h=da06056731&autoplay=1&loop=1&muted=1&background=1" allow="autoplay; fullscreen" allowfullscreen></iframe></div><div class="video-container"><iframe src="https://www.youtube.com/embed/pugwLd7Ja98" title="Magiske Glimt" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></section>
+
+    <section>
+    <h2>Magiske Glimt</h2>
+
+    <div class="video-grid">
+
+        <!-- VIDEO 1 -->
+        <div class="video-container">
+            <iframe 
+                src="https://player.vimeo.com/video/1169931420?h=da06056731&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- VIDEO 2 -->
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/pugwLd7Ja98?autoplay=1&mute=1&loop=1&playlist=pugwLd7Ja98"
+                title="Magiske Glimt"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-container">
+            <iframe 
+                src="https://player.vimeo.com/video/1179183043?h=65e2e25ce9&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+</section>
+
 <section id="Artister"><h2>Artister</h2><div class="image-grid">
 <div class="grid-item"><img src="../Rune.jpg" alt="Rune Carlsen"><div class="artist-desc"><strong>Rune Carlsen</strong> er kanskje Norges mest meritterte tryllekunstner med utmerkelser fra tv-opptredener og Magic Castle.</div></div>
 <div class="grid-item"><img src="../toringe.jpg" alt="Tor Inge Ulveseth"><div class="artist-desc"><strong>Tor Inge Ulveseth</strong> er et kjent fjes i Bergen, både i trylle- og stand-upmiljøet.</div></div>

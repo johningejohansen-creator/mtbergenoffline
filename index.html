@@ -113,6 +113,101 @@ text-align:center;
 }
 }
 
+
+/* Dynamisk hotellbooking-modal for mobil, nettbrett og PC */
+.modal{
+overflow-y:auto;
+padding:24px 12px;
+box-sizing:border-box;
+}
+
+.modal-content{
+margin:clamp(16px,5vh,60px) auto;
+padding:clamp(22px,4vw,50px);
+width:min(92vw,540px);
+max-height:calc(100vh - 48px);
+overflow-y:auto;
+box-sizing:border-box;
+}
+
+#hotelModal .modal-content{
+width:min(94vw,560px);
+}
+
+#hotelBookingForm input,
+#signupForm input{
+width:100%;
+padding:clamp(13px,2.5vw,16px);
+margin:10px 0 18px 0;
+box-sizing:border-box;
+font-size:16px;
+}
+
+#hotelBookingForm .vote-option{
+align-items:center;
+gap:10px;
+}
+
+#hotelBookingForm input[type="radio"]{
+width:auto;
+margin:0;
+flex:0 0 auto;
+}
+
+#hotelBookingForm label{
+line-height:1.35;
+}
+
+#hotelModalTitle{
+font-size:clamp(1.45rem,5vw,2rem);
+text-align:center;
+margin-top:0;
+color:var(--gold);
+}
+
+@media (min-width:900px){
+#hotelModal .modal-content{
+width:min(48vw,620px);
+}
+}
+
+@media (max-width:700px){
+.modal{
+padding:10px;
+}
+
+.modal-content,
+#hotelModal .modal-content{
+width:96vw!important;
+max-width:96vw!important;
+margin:12px auto!important;
+padding:22px 16px!important;
+max-height:calc(100vh - 24px);
+border-width:2px;
+border-radius:16px;
+}
+
+.close{
+right:16px;
+top:10px;
+font-size:32px;
+}
+
+#hotelModal .vote-option{
+padding:14px 12px;
+}
+
+#hotelModal .btn-reg{
+font-size:1rem;
+padding:14px;
+}
+
+#hotelModal p{
+font-size:.95rem;
+line-height:1.45;
+}
+}
+
 </style>
 </head>
 
@@ -467,11 +562,11 @@ Stem videre – listen oppdateres fortløpende.
 
 <section id="Paamelding">
 <h2>Påmelding er åpen</h2>
-<h3 style="text-align:center; max-width:900px; margin:0 auto 25px;">Du får en bekreftelse når skjemaet er sendt inn. Faktura kommer fra MCN etter 15. mai 2026.</h3>
+<h3 style="text-align:center; max-width:900px; margin:0 auto 25px;">Du får en bekreftelse når skjemaet er sendt inn. Faktura kommer fra MCN i løpet av juni for earlybirds og junior, fortløpende for andre.</h3>
 
 <div class="pricing-grid">
-<div class="price-card"><h4>Early Bird Senior</h4><p>Fram til 15. mai</p><p>Marker i skjema om du har med deg ledsager</p><div class="amount">2095,-</div><button class="btn-reg ticket-btn" type="button" data-ticket="Early Bird Senior">Simsalabim</button></div>
-<div class="price-card"><h4>Senior</h4><p>Fullpris etter 15. mai</p><p>Marker i skjema om du har med deg ledsager</p><div class="amount">2495,-</div><button class="btn-reg ticket-btn" type="button" data-ticket="Senior">Simsalabim</button></div>
+<div class="price-card"><h4>Early Bird Senior</h4><p>Fram til 1. juni</p><p>Marker i skjema om du har med deg ledsager</p><div class="amount">2095,-</div><button class="btn-reg ticket-btn" type="button" data-ticket="Early Bird Senior">Simsalabim</button></div>
+<div class="price-card"><h4>Senior</h4><p>Fullpris etter 1. juni</p><p>Marker i skjema om du har med deg ledsager</p><div class="amount">2495,-</div><button class="btn-reg ticket-btn" type="button" data-ticket="Senior">Simsalabim</button></div>
 <div class="price-card"><h4>Junior</h4><p>For medlemmer under 18 år</p><p>Marker i skjema om du ønsker å delta i NM</p><div class="amount">1495,-</div><button class="btn-reg ticket-btn" type="button" data-ticket="Junior">Simsalabim</button></div>
 <div class="price-card"><h4>Ledsager for junior</h4><p>For ikke-tryllende foresatte</p><div class="amount">0,-</div><button class="btn-reg ticket-btn" type="button" data-ticket="Ledsager">Simsalabim</button></div>
 </div>
@@ -503,7 +598,7 @@ Stem videre – listen oppdateres fortløpende.
     <div class="modal-content">
         <span class="close" id="closeHotelModal">&times;</span>
         <h3 id="hotelModalTitle">Bestill hotellrom</h3>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Vi samler inn bestillinger og sender liste til hotellet.Skal du ha bare en natt, så må du melde fra om det på epost etter at du har mottatt bekreftelse. </p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Vi samler inn og melder til hotell som gruppe. Skal du ha bare en natt, så må du melde fra om det på epost etter at du har mottatt bekreftelse. </p>
 
         <form id="hotelBookingForm">
             <input type="text" name="navn" required placeholder="Fullt navn">

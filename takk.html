@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Takk for din stemme</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --gold:#d4af37;
+    --dark:#0f172a;
+    --light:#f8fafc;
+    --border:rgba(212,175,55,0.3);
+}
+
+body {
+    font-family:'Inter',sans-serif;
+    margin:0;
+    background:var(--dark);
+    color:var(--light);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    text-align:center;
+}
+
+.box {
+    background:rgba(255,255,255,0.05);
+    border:1px solid var(--border);
+    padding:50px 40px;
+    border-radius:20px;
+    max-width:500px;
+}
+
+h1 {
+    color:var(--gold);
+    font-weight:900;
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+p {
+    opacity:0.9;
+    margin-bottom:30px;
+}
+
+.btn {
+    background:var(--gold);
+    color:var(--dark);
+    padding:15px 25px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:900;
+    text-transform:uppercase;
+    display:inline-block;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Takk for din stemme!</h1>
+    <p>Dine ønsker er registrert. Dette hjelper oss å lage et best mulig program.</p>
+    <a href="/protected/" class="btn">Tilbake til medlemssiden</a>
+</div>
+
+</body>
+</html>

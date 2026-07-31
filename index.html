@@ -220,11 +220,19 @@ line-height:1.45;
 .frodo-hero{position:relative;border-radius:20px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 30px 60px rgba(0,0,0,.6);margin-bottom:60px}
 .frodo-hero img{display:block;width:100%;height:clamp(320px,52vh,620px);object-fit:cover}
 .frodo-hero-caption{position:absolute;left:0;right:0;bottom:0;padding:60px 30px 26px;background:linear-gradient(transparent,rgba(15,23,42,.95));font-weight:700;color:var(--gold);font-size:clamp(.95rem,2vw,1.15rem)}
-.frodo-split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-bottom:70px}
-.frodo-split img{width:100%;border-radius:15px;border:1px solid var(--border);box-shadow:0 20px 40px rgba(0,0,0,.5);display:block;aspect-ratio:4/5;object-fit:cover}
-.frodo-split h3{color:var(--gold);text-transform:uppercase;font-weight:900;font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.05;margin:0 0 18px;letter-spacing:-1px}
-.frodo-split p{font-size:1.15rem;line-height:1.7;opacity:.95}
 .frodo-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-bottom:70px}
+.frodo-duo{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:760px;margin:0 auto 60px}
+.frodo-duo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;border:1px solid var(--border);box-shadow:0 18px 36px rgba(0,0,0,.5);display:block}
+.frodo-body{max-width:820px;margin:0 auto 55px;font-size:1.15rem;line-height:1.7;opacity:.95;text-align:center}
+.frodo-cvlines{max-width:900px;margin:0 auto 60px;display:grid;gap:2px}
+.frodo-cvline{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-top:1px solid var(--border);align-items:baseline}
+.frodo-cvline:last-child{border-bottom:1px solid var(--border)}
+.frodo-cvline dt{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin:0}
+.frodo-cvline dd{margin:0;font-size:1.02rem;line-height:1.55;opacity:.92}
+@media (max-width:640px){
+.frodo-cvline{grid-template-columns:1fr;gap:6px}
+.frodo-duo{gap:14px}
+}
 .frodo-fact{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:16px;padding:26px 22px;text-align:center}
 .frodo-fact .num{display:block;font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:8px;letter-spacing:-1px}
 .frodo-fact .lbl{font-size:.92rem;line-height:1.4;opacity:.9;font-weight:700}
@@ -242,11 +250,6 @@ line-height:1.45;
 .frodo-quote.royal{border-left-color:#fff;background:rgba(212,175,55,.08)}
 .frodo-outro{text-align:center;max-width:780px;margin:0 auto;font-size:clamp(1.1rem,2.4vw,1.4rem);line-height:1.65}
 .frodo-outro strong{color:var(--gold)}
-@media (max-width:900px){
-.frodo-split{grid-template-columns:1fr;gap:28px}
-.frodo-split.reverse .frodo-split-img{order:-1}
-}
-
 
 /* ---- Kalenderark (klikkbare datoer) ---- */
 .datecards{position:relative;z-index:5;margin:-78px auto 60px;padding:0 20px;max-width:1000px;scroll-margin-top:100px}
@@ -429,23 +432,17 @@ Captain Frodo &mdash; fysisk komiker, sirkusartist og magiker. N&aring; til Magi
 </div>
 </div>
 
-<div class="frodo-split">
-<div class="frodo-split-img"><img src="../Frodo1.jpg" alt="Captain Frodo i aksjon"></div>
-<div>
-<h3>Illusjonen i racketen</h3>
-<p>De som har sett Captain Frodo presse seg gjennom to tennisracketer, tror de har sett en gummimann. De har egentlig sett en magiker. Hele tennisakten er en illusjon.</p>
-<p>Gjennom n&oslash;ye koreografert misdirection &mdash; avledning, som Jarle Leirpoll kaller det &mdash; skaper Captainen noe som ser ut som fullstendig kaos. Alt som virker tilfeldig, er lagt til rette rett foran &oslash;ynene p&aring; publikum.</p>
-</div>
+<div class="frodo-duo">
+<img src="../Frodo1.jpg" alt="Captain Frodo i aksjon">
+<img src="../Frodo3.jpg" alt="Captain Frodo p&aring; scenen">
 </div>
 
-<div class="frodo-split reverse">
-<div>
-<h3>Magien har alltid v&aelig;rt der</h3>
-<p>Frodo begynte artistkarrieren som 10-&aring;ring, sammen med faren sin &mdash; ogs&aring; han tryllekunstner. Siden har han tryllet og gj&oslash;glet overalt: fra gateartist p&aring; Str&oslash;get i K&oslash;benhavn til Queen Elizabeth Hall i London og Operahuset i Sydney.</p>
-<p>Enten det har v&aelig;rt freakshow, sirkus eller variet&eacute;, har magien alltid v&aelig;rt med i spillet. De siste &aring;rene har den blitt hovedfokuset &mdash; og han opptrer i dag som en ekte tryllekunstner, s&aelig;rlig for familiepublikum.</p>
-</div>
-<div class="frodo-split-img"><img src="../Frodo3.jpg" alt="Captain Frodo p&aring; scenen"></div>
-</div>
+<p class="frodo-body">
+Frodo begynte artistkarrieren som 10-&aring;ring, sammen med faren sin &mdash; ogs&aring; han tryllekunstner.
+Siden har han gj&oslash;glet p&aring; Str&oslash;get i K&oslash;benhavn, i Queen Elizabeth Hall i London og i
+Operahuset i Sydney. Enten det har v&aelig;rt freakshow, sirkus eller variet&eacute;, har magien alltid
+v&aelig;rt med i spillet. De siste &aring;rene har den blitt hovedfokuset.
+</p>
 
 <div class="frodo-facts">
 <div class="frodo-fact"><span class="num">1996</span><span class="lbl">P&aring; veien siden &mdash; 99 % av karrieren i utlandet</span></div>
@@ -454,23 +451,20 @@ Captain Frodo &mdash; fysisk komiker, sirkusartist og magiker. N&aring; til Magi
 <div class="frodo-fact"><span class="num">4&times;</span><span class="lbl">opptreden for Dronningen av Danmark</span></div>
 </div>
 
-<div class="frodo-cv">
-<h3>Fra CV-en</h3>
-<ul>
-<li>Cirque du Soleil, <em>Mad Apple</em> &mdash; Las Vegas</li>
-<li>La Soir&eacute;e og La Clique &mdash; begge Olivier-vinnere</li>
-<li>Crazy Horse &mdash; Paris</li>
-<li>Absinthe og Spiegelworld's Opium &mdash; Las Vegas</li>
-<li>Circus Oz &mdash; Australia</li>
-<li>Circus Flic Flac &mdash; Tyskland</li>
-<li>Royal Festival Hall &mdash; London</li>
-<li>Caesars Palace &mdash; Las Vegas</li>
-<li>Zirkus Nemo &mdash; Danmark</li>
-<li>Delt scene med John Cleese, Jason Alexander og Neil Patrick Harris</li>
-<li>Underholdt Uma Thurman, Jason Momoa, Kate Moss, Stella McCartney og Jean-Paul Gaultier</li>
-<li>Personlig invitert til dav&aelig;rende prins Charles' private juleselskap p&aring; St James' Palace</li>
-</ul>
+<dl class="frodo-cvlines">
+<div class="frodo-cvline">
+<dt>Scener</dt>
+<dd>Cirque du Soleils <em>Mad Apple</em>, Absinthe og Spiegelworld's Opium (Las Vegas) &middot; Crazy Horse (Paris) &middot; Royal Festival Hall (London) &middot; Circus Oz (Australia) &middot; Flic Flac (Tyskland) &middot; Zirkus Nemo (Danmark)</dd>
 </div>
+<div class="frodo-cvline">
+<dt>Delt scene med</dt>
+<dd>John Cleese &middot; Jason Alexander &middot; Neil Patrick Harris</dd>
+</div>
+<div class="frodo-cvline">
+<dt>Har underholdt</dt>
+<dd>Uma Thurman &middot; Jason Momoa &middot; Kate Moss &middot; Stella McCartney &middot; Jean-Paul Gaultier &middot; og dav&aelig;rende prins Charles i hans private juleselskap p&aring; St James' Palace</dd>
+</div>
+</dl>
 
 <div class="frodo-press">
 <h3>Hva pressen sier</h3>
@@ -491,27 +485,12 @@ Captain Frodo &mdash; fysisk komiker, sirkusartist og magiker. N&aring; til Magi
 <cite>Sydney Morning Herald</cite>
 </div>
 
-<div class="frodo-quote">
-<blockquote>&laquo;This bendy clown is surely the Tommy Cooper of contortion.&raquo;</blockquote>
-<cite>What's On, London</cite>
-</div>
-
-<div class="frodo-quote">
-<blockquote>&laquo;The most imaginative &mdash; and perhaps more importantly, hysterical &mdash; contortion act you are ever likely to see.&raquo;</blockquote>
-<cite>The Stage, London</cite>
-</div>
-
-<div class="frodo-quote">
-<blockquote>&laquo;His precarious ascent becomes a comment on the absurdity of all human endeavour.&raquo;</blockquote>
-<cite>The Guardian, London</cite>
-</div>
-
 </div>
 </div>
 
 <p class="frodo-outro">
-Siden 2020 har Captainen bodd i Norge. I september f&aring;r Bergen se hvorfor aviser og kritikere
-verden rundt har rost ham opp i skyene. <strong>Dette er ikke et show du ser to ganger.</strong>
+Siden 2020 har Captainen bodd i Norge. I september f&aring;r Bergen se hvorfor.
+<strong>Dette er ikke et show du ser to ganger.</strong>
 </p>
 
 </section>

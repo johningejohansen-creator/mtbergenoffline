@@ -302,10 +302,17 @@ line-height:1.45;
 .pg-node::before{content:"";position:absolute;left:50%;top:18px;bottom:-6px;width:2px;margin-left:-1px;background:var(--border)}
 .pg-node::after{content:"";position:absolute;left:50%;top:15px;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;background:var(--dark);border:2px solid var(--gold)}
 .pg-item:last-child .pg-node::before{display:none}
+.pg-item.break .pg-time{color:#94a3b8;font-weight:800}
+.pg-item.break .pg-node::after{background:var(--dark);border-color:#94a3b8;width:9px;height:9px;margin-left:-4.5px;top:16px}
+.pg-item.break .pg-content h4{font-size:.92rem;font-weight:900;color:#94a3b8;text-transform:uppercase;letter-spacing:2.5px}
+.pg-item.break .pg-content p{font-size:.92rem;opacity:.6}
+.pg-item.break .pg-content{padding-bottom:22px}
 .pg-content{padding:6px 0 30px}
 .pg-content h4{margin:0 0 6px;font-size:1.2rem;font-weight:900;color:var(--light);line-height:1.3}
 .pg-content p{margin:0 0 10px;font-size:1rem;line-height:1.55;opacity:.85}
-.pg-venue{display:inline-block;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);border:1px solid var(--border);border-radius:99px;padding:5px 13px;background:rgba(212,175,55,.07)}
+.pg-venue{display:inline-block;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);border:1px solid var(--border);border-radius:99px;padding:5px 13px;background:rgba(212,175,55,.07);text-decoration:none}
+a.pg-venue{transition:background .25s,border-color .25s}
+a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-color:var(--gold)}
 .pg-venue.tba{color:#94a3b8;border-color:rgba(148,163,184,.35);background:rgba(148,163,184,.08)}
 .pg-item.hero .pg-node::after{width:15px;height:15px;margin-left:-7.5px;top:13px;background:var(--gold);box-shadow:0 0 0 5px rgba(212,175,55,.18)}
 .pg-item.hero .pg-content{background:rgba(212,175,55,.07);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;padding:20px 24px;margin-bottom:30px}
@@ -801,30 +808,74 @@ Endelig presentasjon av seminaristene kommer 1. august.
 <span class="pg-venue">&#128205; Magic Hotel</span>
 </div>
 </div>
-<div class="pg-item"><div class="pg-time">11:00&ndash;11:45</div><div class="pg-node"></div><div class="pg-content"><div class="pg-parallel">
-<span class="pg-flag">Tre parallelle seminarer &mdash; 11:00&ndash;11:45</span>
-<div class="pg-track">
-<div><h5>Bli profesjonell</h5><span>v/ Boje</span><div class="pg-tag">#Trylling for event og marked</div></div>
-<div><h5>De gamle klassikere, my way</h5><span>v/ Captain Frodo</span><div class="pg-tag">#Scenemagi</div></div>
-<div><h5>Annonseres snart</h5><span>Seminarist kommer</span><div class="pg-tag">#Barneshow og familietrylling</div></div>
-</div>
-<span class="pg-venue">&#128205; Magic Hotel</span>
-</div></div></div>
 <div class="pg-item">
-<div class="pg-time">13:30&ndash;15:00</div>
+<div class="pg-time">10:00&ndash;10:45</div>
+<div class="pg-node"></div>
+<div class="pg-content">
+<span class="pg-flag">Seminar</span>
+<h4>De gamle klassikere, my way</h4>
+<p>v/ Captain Frodo</p>
+<div class="pg-tag" style="margin-bottom:12px;">#Scenemagi</div>
+<span class="pg-venue">&#128205; Magic Hotel</span>
+</div>
+</div>
+<div class="pg-item">
+<div class="pg-time">11:00&ndash;11:45</div>
+<div class="pg-node"></div>
+<div class="pg-content">
+<span class="pg-flag">Seminar</span>
+<h4>Annonseres snart</h4>
+<p>Seminarist kommer</p>
+<div class="pg-tag" style="margin-bottom:12px;">#Barneshow og familietrylling</div>
+<span class="pg-venue">&#128205; Magic Hotel</span>
+</div>
+</div>
+<div class="pg-item">
+<div class="pg-time">12:00&ndash;12:45</div>
+<div class="pg-node"></div>
+<div class="pg-content">
+<span class="pg-flag">Seminar</span>
+<h4>Annonseres snart</h4>
+<p>Seminarist kommer</p>
+<div class="pg-tag" style="margin-bottom:12px;">#Mentalisme</div>
+<span class="pg-venue">&#128205; Magic Hotel</span>
+</div>
+</div>
+<div class="pg-item break">
+<div class="pg-time">12:45&ndash;13:30</div>
+<div class="pg-node"></div>
+<div class="pg-content">
+<h4>Lunsjpause</h4>
+<p>Spis og kom deg videre til Bergen Camping.</p>
+<span class="pg-venue tba">&#128205; P&aring; egen h&aring;nd</span>
+</div>
+</div>
+<div class="pg-item">
+<div class="pg-time">14:00&ndash;15:30</div>
 <div class="pg-node"></div>
 <div class="pg-content">
 <h4>Bojesjow</h4>
 <span class="pg-venue">&#128205; Bergen Camping</span>
 </div>
 </div>
-<div class="pg-item"><div class="pg-time">15:30&ndash;17:00</div><div class="pg-node"></div><div class="pg-content"><div class="pg-parallel">
-<span class="pg-flag">To parallelle tilbud &mdash; 15:30&ndash;17:00</span>
+<div class="pg-item"><div class="pg-time">16:00&ndash;17:00</div><div class="pg-node"></div><div class="pg-content"><div class="pg-parallel">
+<span class="pg-flag">To parallelle tilbud &mdash; 16:00&ndash;17:00</span>
 <div class="pg-track">
 <div><h5>Mingling og shopping hos dealerne</h5><span>Magic Hotel</span></div>
 <div><h5>Byvandring med Krees Kron</h5><span>Over hele byen</span></div>
 </div>
 </div></div></div>
+<div class="pg-item">
+<div class="pg-time">17:00&ndash;18:30</div>
+<div class="pg-node"></div>
+<div class="pg-content">
+<span class="pg-flag">Gratis for deltakere</span>
+<h4>Bes&oslash;k Magic Ice Bar</h4>
+<p>Gratis inngang og &eacute;n drink p&aring; huset for alle med kongresskort. Ta turen innom
+f&oslash;r Dinner Show &mdash; Magic Ice stiller med passende kl&aelig;r uansett hva du har p&aring; deg.</p>
+<a class="pg-venue" href="https://www.magicice.no/listings/bergen-norway/" target="_blank" rel="noopener">&#128205; Magic Ice, Bergen</a>
+</div>
+</div>
 <div class="pg-item hero">
 <div class="pg-time">19:00&ndash;22:30</div>
 <div class="pg-node"></div>
@@ -860,9 +911,10 @@ Endelig presentasjon av seminaristene kommer 1. august.
 <div class="pg-time">11:00&ndash;12:00</div>
 <div class="pg-node"></div>
 <div class="pg-content">
-<h4>Seminar</h4>
-<p>Seminarist offentliggj&oslash;res senere.</p>
-<div class="pg-tag" style="margin-bottom:12px;">#Mentalisme</div>
+<span class="pg-flag">Seminar</span>
+<h4>Bli profesjonell</h4>
+<p>v/ Boje</p>
+<div class="pg-tag" style="margin-bottom:12px;">#Trylling for event og marked</div>
 <span class="pg-venue">&#128205; Cornerteateret</span>
 </div>
 </div>
@@ -874,6 +926,14 @@ Endelig presentasjon av seminaristene kommer 1. august.
 <h4>Junior-NM</h4>
 <p>Juniorene konkurrerer om NM-tittelen.</p>
 <span class="pg-venue">&#128205; Cornerteateret</span>
+</div>
+</div>
+<div class="pg-item break">
+<div class="pg-time">13:00&ndash;13:45</div>
+<div class="pg-node"></div>
+<div class="pg-content">
+<h4>Lunsjpause</h4>
+<span class="pg-venue tba">&#128205; P&aring; egen h&aring;nd</span>
 </div>
 </div>
 <div class="pg-item">

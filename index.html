@@ -305,6 +305,17 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
 .pg-parallel > .pg-flag{margin-bottom:14px}
 .pg-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:16px}
 .pg-track > div{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:11px;padding:15px 16px}
+.pg-groups{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.pg-group{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.pg-group h5{margin:0;padding:10px 16px;background:rgba(212,175,55,.16);color:var(--gold);font-size:.85rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase}
+.pg-group ol{list-style:none;margin:0;padding:14px 16px 16px}
+.pg-group li{display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:baseline;padding:9px 0;border-top:1px solid rgba(212,175,55,.14)}
+.pg-group li:first-child{border-top:0;padding-top:0}
+.pg-group li b{font-size:.92rem;font-weight:900;color:var(--gold);font-variant-numeric:tabular-nums}
+.pg-group li span{font-size:1rem;line-height:1.4}
+.pg-group li span em{display:block;font-style:normal;font-size:.8rem;opacity:.65;margin-top:2px}
+.pg-swap{font-size:.9rem;line-height:1.6;opacity:.8;margin-bottom:14px}
+@media (max-width:700px){.pg-groups{grid-template-columns:1fr}}
 .pg-track h5{margin:0 0 6px;font-size:1rem;font-weight:900;color:var(--light);line-height:1.35}
 .pg-track p{margin:9px 0 0;font-size:.86rem;line-height:1.5;opacity:.82;font-weight:400;text-transform:none;letter-spacing:0}
 .pg-track .pg-venue{margin-top:11px}
@@ -811,28 +822,36 @@ modnes, og han har skrevet lecture notes p&aring; den. Du g&aring;r ut med konkr
 <div class="pg-node"></div>
 <div class="pg-content">
 <div class="pg-parallel">
-<span class="pg-flag">Tre frivillige tilbud &mdash; velg selv</span>
-<div class="pg-track">
+<span class="pg-flag">Frivillig &mdash; velg gruppe A eller B</span>
 
-<div>
-<h5>Mingling og shopping hos dealerne</h5>
-<span>Magic Hotel</span>
+<p class="pg-swap">Vi deler oss i to og bytter plass kl. 17:00, s&aring; begge gruppene f&aring;r
+med seg b&aring;de byvandringen og isbaren.</p>
+
+<div class="pg-groups">
+
+<div class="pg-group">
+<h5>Gruppe A</h5>
+<ol>
+<li><b>16:15</b><span>Mystiske Nordnes<em>Byvandring med Kees Kroon, til kl. 17:00</em></span></li>
+<li><b>17:00</b><span>Magic Ice Bar<em>Til kl. 17:30. Gratis inngang og &eacute;n drink</em></span></li>
+</ol>
 </div>
 
-<div>
-<h5>Byvandring med Krees Kron</h5>
-<span>Over hele byen</span>
-</div>
-
-<div>
-<h5>Magic Ice Bar</h5>
-<span>Magic Ice, Bergen</span>
-<p>Gratis inngang og &eacute;n drink p&aring; huset for alle med kongresskort. De stiller med
-passende kl&aelig;r uansett hva du har p&aring; deg.</p>
-<a class="pg-venue" href="https://www.magicice.no/listings/bergen-norway/" target="_blank" rel="noopener">&#128205; Se stedet</a>
+<div class="pg-group">
+<h5>Gruppe B</h5>
+<ol>
+<li><b>16:30</b><span>Magic Ice Bar<em>Gratis inngang og &eacute;n drink</em></span></li>
+<li><b>17:00</b><span>Mystiske Nordnes<em>Byvandring med Kees Kroon</em></span></li>
+</ol>
 </div>
 
 </div>
+
+<p class="pg-swap" style="margin-bottom:12px">
+Magic Ice stiller med passende kl&aelig;r uansett hva du har p&aring; deg.
+Dealerne holder åpent p&aring; Magic Hotel for dem som heller vil bli der.</p>
+
+<a class="pg-venue" href="https://www.magicice.no/listings/bergen-norway/" target="_blank" rel="noopener">&#128205; Magic Ice, Bergen</a>
 </div>
 </div>
 </div>

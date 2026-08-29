@@ -346,6 +346,25 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
 .partner-item a:hover,.partner-item a:focus-visible{opacity:.82;transform:translateY(-4px)}
 @media (prefers-reduced-motion:reduce){.partner-item a{transition:none}.partner-item a:hover,.partner-item a:focus-visible{transform:none}}
 
+
+/* --- Show-plakater 2026 --- */
+.hero-title{font-size:clamp(2.4rem,8.5vw,7rem);letter-spacing:-2px;line-height:.9}
+.shows-section{scroll-margin-top:100px}
+.show-row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:55px;align-items:center;margin-bottom:100px}
+.show-row:last-child{margin-bottom:0}
+.show-poster{display:block;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 20px 40px rgba(0,0,0,.5);transition:transform .35s,border-color .35s}
+.show-poster:hover{transform:translateY(-6px);border-color:var(--gold)}
+.show-poster img{display:block;width:100%;height:auto}
+.show-kicker{font-size:.78rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:10px}
+.show-text h3{font-size:clamp(1.9rem,4.5vw,3.1rem);font-weight:900;text-transform:uppercase;letter-spacing:-1px;line-height:1;margin:0 0 14px;color:var(--light)}
+.show-meta{font-weight:800;color:var(--gold);font-size:1.05rem;margin-bottom:20px;line-height:1.4}
+.show-text p{font-size:1.15rem;opacity:.95;margin:0 0 28px}
+.ticket-link{display:inline-block;background:var(--gold);color:var(--dark);font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:15px 30px;border-radius:10px;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.ticket-link:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(212,175,55,.35)}
+.poster-hint{text-align:center;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--gold);opacity:.7;margin-top:14px}
+.datecards{margin-top:20px}
+@media (max-width:900px){.show-row{grid-template-columns:1fr;gap:30px;margin-bottom:80px}.show-poster{max-width:440px;margin:0 auto}.show-text{text-align:center}.show-text p{font-size:1.05rem}}
+@media (max-width:700px){.datecards{margin-top:10px}}
 </style>
 </head>
  
@@ -353,6 +372,7 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
  
 <nav>
 <a href="#">Hjem</a>
+<a href="#Show">Show</a>
 <a href="#Frodo">Frodo</a>
 <a href="#Artister">Artister</a>
 <a href="#Program">Program</a>
@@ -363,7 +383,7 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
  
 <header>
 <div class="hero-location">BERGEN 18.–20. SEPT 2026</div>
-<h1>Magiske Timer</h1>
+<h1 class="hero-title">Bergen blir magisk</h1>
 <div id="countdown-container">
 <div class="timer">
 <div class="time-box"><span id="days">00</span><span>Dager</span></div>
@@ -373,6 +393,63 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
 </div>
 </div>
 </header>
+
+<div class="content-wrapper" style="padding-bottom:0;">
+<section class="shows-section" id="Show">
+
+<div class="show-row">
+<a class="show-poster" href="web/plakat-boje-stor.jpg" target="_blank" rel="noopener">
+<picture>
+<source srcset="web/plakat-boje.webp" type="image/webp">
+<img src="web/plakat-boje.jpg" width="1200" height="1680" alt="Plakat: Boje Hoseth &ndash; magisk crazy show p&aring; Bergen Camping l&oslash;rdag 19. september 2026 kl 15:00" loading="lazy" decoding="async">
+</picture>
+</a>
+<div class="show-text">
+<div class="show-kicker">Magisk crazy show</div>
+<h3>Boje Hoseth</h3>
+<div class="show-meta">L&oslash;rdag 19. september 2026 &middot; kl. 15:00 &middot; Bergen Camping</div>
+<p>Boje Hoseth er en av Norges mest crazy tryllekunstnere. N&aring; kan du oppleve han i et formiddagsshow p&aring; Bergen Camping. Glem alt du tror du vet om magi &ndash; han overrasker deg og f&aring;r deg til &aring; trekke p&aring; smileb&aring;ndet, bryte ut i spontan mistro og gir deg lyst til &aring; virkelig st&aring; p&aring; stolen for &aring; gi applaus.</p>
+<a class="ticket-link" href="https://www.letsreg.com/no/register/crazymagicsjov_27082026011315#/" target="_blank" rel="noopener">Bestill billetter her!</a>
+</div>
+</div>
+
+<div class="show-row">
+<a class="show-poster" href="web/plakat-dinner-stor.jpg" target="_blank" rel="noopener">
+<picture>
+<source srcset="web/plakat-dinner.webp" type="image/webp">
+<img src="web/plakat-dinner.jpg" width="1200" height="1680" alt="Plakat: Dinnershow p&aring; Sj&oslash;scenen l&oslash;rdag 19. september 2026 kl 20:00" loading="lazy" decoding="async">
+</picture>
+</a>
+<div class="show-text">
+<div class="show-kicker">&Eacute;n magisk kveld med mat</div>
+<h3>Dinnershow</h3>
+<div class="show-meta">L&oslash;rdag 19. september 2026 &middot; kl. 20:00 &middot; Sj&oslash;scenen, Holbergskaien i V&aring;gen</div>
+<p>L&oslash;rdag kveld legger &laquo;Sj&oslash;scenen&raquo; til ved Holbergskaien i V&aring;gen. Et kveldsshow med internasjonalt tilsnitt og en omfangsrik tapasbuffet er inkludert i prisen. Captain Frodo er for f&oslash;rste gang p&aring; lenge i Bergen &ndash; en merittert tryllekunstner som har turnert over hele verden: Las Vegas, Cirque du Soleil og Australia for &aring; nevne noe. Rune Carlsen er kanskje Norges mest meritterte tryllekunstner og har hatt flere show p&aring; Magic Castle i Los Angeles &ndash; du kan kanskje ha sett han p&aring; Norske og Svenske talenter, hvor gullknappen ble brukt for ham. Flere andre kommer p&aring; scenen i dette helt spesielle arrangementet.</p>
+<a class="ticket-link" href="https://www.letsreg.com/no/register/crazymagicsjov1_27082026011834" target="_blank" rel="noopener">Bestill billetter her!</a>
+</div>
+</div>
+
+<div class="show-row">
+<a class="show-poster" href="web/plakat-junior-stor.jpg" target="_blank" rel="noopener">
+<picture>
+<source srcset="web/plakat-junior.webp" type="image/webp">
+<img src="web/plakat-junior.jpg" width="1200" height="1680" alt="Plakat: Familieshow med junior-NM p&aring; Cornerteateret s&oslash;ndag 20. september 2026 kl 12:00" loading="lazy" decoding="async">
+</picture>
+</a>
+<div class="show-text">
+<div class="show-kicker">Trylleforestilling med konkurranse</div>
+<h3>Familieforestilling</h3>
+<div class="show-meta">S&oslash;ndag 20. september 2026 &middot; kl. 12:00 &middot; Cornerteateret, M&oslash;hlenpris</div>
+<p>Cornerteateret p&aring; M&oslash;hlenpris er arena for en helt spesiell magisk familieforestilling som inkluderer junior-NM med tre deltakere. Egne familiepriser. La barna dine bli inspirert til &aring; starte en helt ny hobby, eller bare kom og la deg underholde.</p>
+<a class="ticket-link" href="https://www.letsreg.com/no/register/dinnershowmagisketimer20261_27082026013009" target="_blank" rel="noopener">Bestill billetter her!</a>
+</div>
+</div>
+
+<div class="poster-hint">Trykk p&aring; en plakat for &aring; se den i stor versjon</div>
+
+</section>
+</div>
+
 
 <div class="datecards" id="Datoer">
 <div class="datecard-row">

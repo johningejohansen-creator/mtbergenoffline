@@ -306,6 +306,37 @@ h1{
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
 }
+
+.bod-link{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  margin:26px auto 0;
+  padding:16px 30px;
+  background:var(--gold);
+  color:var(--midnight);
+  text-decoration:none;
+  border-radius:10px;
+  box-shadow:0 16px 34px rgba(0,0,0,.45);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.bod-link strong{
+  font-size:1.02rem;
+  font-weight:800;
+  letter-spacing:.4px;
+}
+.bod-link span{
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  opacity:.8;
+}
+.bod-link:hover,.bod-link:focus-visible{
+  transform:translateY(-3px);
+  box-shadow:0 20px 42px rgba(232,185,58,.3);
+}
 </style>
 </head>
 <body>
@@ -317,6 +348,11 @@ h1{
     <div class="eyebrow">Dealer &middot; Magiske Timer 2026 &middot; Bergen</div>
     <h1>John Inge Johansen</h1>
     <p class="tagline">Humor og sånn</p>
+
+    <a class="bod-link" href="https://secondhand-production-9c32.up.railway.app/" target="_blank" rel="noopener">
+      <strong>Tilgang til digital bod</strong>
+      <span>Passord: mt2026</span>
+    </a>
   </header>
 
   <div class="rule"></div>

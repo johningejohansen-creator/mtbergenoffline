@@ -365,6 +365,16 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
 .datecards{margin-top:20px}
 @media (max-width:900px){.show-row{grid-template-columns:1fr;gap:30px;margin-bottom:80px}.show-poster{max-width:440px;margin:0 auto}.show-text{text-align:center}.show-text p{font-size:1.05rem}}
 @media (max-width:700px){.datecards{margin-top:10px}}
+
+/* --- Dommerpanel MCN-mesterskapet --- */
+.jury-intro{margin:4px 0 16px}
+.jury-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:0 0 18px;max-width:640px}
+.jury-person{margin:0;text-align:center}
+.jury-person img{display:block;width:118px;height:118px;max-width:100%;object-fit:cover;border-radius:50%;border:2px solid var(--border);margin:0 auto}
+.jury-person figcaption{margin-top:10px;font-size:.85rem;line-height:1.45}
+.jury-person figcaption b{display:block;color:var(--gold);font-weight:900;margin-bottom:4px;font-size:.9rem}
+.jury-person figcaption span{opacity:.9}
+@media (max-width:640px){.jury-row{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
  
@@ -916,6 +926,30 @@ i Kongesalen p&aring; Cornerteateret.</p>
 <div class="pg-node"></div>
 <div class="pg-content">
 <h4>Interntprogram &mdash; show og MCN-mesterskap</h4>
+<p class="jury-intro">MCN-mesterskapet d&oslash;mmes av en lokal jury med tre markante bergensere.</p>
+<div class="jury-row">
+<figure class="jury-person">
+<picture>
+<source srcset="web/jury-staalesen.webp" type="image/webp">
+<img src="web/jury-staalesen.jpg" width="400" height="400" alt="Gunnar Staalesen" loading="lazy" decoding="async">
+</picture>
+<figcaption><b>Gunnar Staalesen</b><span>Bergens store kriminalforfatter, og mannen bak privatdetektiven Varg Veum.</span></figcaption>
+</figure>
+<figure class="jury-person">
+<picture>
+<source srcset="web/jury-skarstein.webp" type="image/webp">
+<img src="web/jury-skarstein.jpg" width="400" height="400" alt="Inger-Lise Skarstein" loading="lazy" decoding="async">
+</picture>
+<figcaption><b>Inger-Lise Skarstein</b><span>NRKs aller f&oslash;rste hallodame, og stortingsrepresentant for Hordaland i tolv &aring;r.</span></figcaption>
+</figure>
+<figure class="jury-person">
+<picture>
+<source srcset="web/jury-drevland.webp" type="image/webp">
+<img src="web/jury-drevland.jpg" width="400" height="400" alt="Trude Drevland" loading="lazy" decoding="async">
+</picture>
+<figcaption><b>Trude Drevland</b><span>Bergens ordf&oslash;rer fra 2011 til 2015, og en av byens mest markante stemmer.</span></figcaption>
+</figure>
+</div>
 <span class="pg-venue">&#128205; Cornerteateret</span>
 </div>
 </div>

@@ -375,6 +375,14 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
 .jury-person figcaption b{display:block;color:var(--gold);font-weight:900;margin-bottom:4px;font-size:.9rem}
 .jury-person figcaption span{opacity:.9}
 @media (max-width:640px){.jury-row{grid-template-columns:1fr;gap:24px}}
+
+/* --- Aapningstider dealere --- */
+.dealer-hours{max-width:720px;margin:0 auto 10px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.dealer-hours div{background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:14px;padding:18px 16px;text-align:center}
+.dealer-hours b{display:block;color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:.72rem;margin-bottom:8px}
+.dealer-hours span{display:block;font-weight:700;font-size:1rem;line-height:1.7}
+.dealer-hours-note{text-align:center;margin:0 auto 34px;font-size:.92rem;opacity:.8}
+@media (max-width:700px){.dealer-hours{grid-template-columns:1fr;gap:14px}}
 </style>
 </head>
  
@@ -983,6 +991,12 @@ honorarer, om du gj&oslash;r noen ting p&aring; riktig m&aring;te.</p>
  
 <section id="Dealers">
 <h2>Dealere</h2>
+<div class="dealer-hours">
+<div><b>Fredag</b><span>17:00&ndash;18:30</span></div>
+<div><b>L&oslash;rdag</b><span>09:00&ndash;10:00</span><span>12:45&ndash;14:00</span><span>16:00&ndash;18:00</span></div>
+<div><b>S&oslash;ndag</b><span>10:00&ndash;12:00</span></div>
+</div>
+<p class="dealer-hours-note">Dealerne holder til p&aring; Magic Hotel Kl&oslash;verhuset.</p>
 <div class="dealer-grid">
 <div class="dealer-item"><a href="https://www.pegani.dk/da" target="_blank"><img src="../pegani_logo_sort.webp" alt="Pegani" class="dealer-img"></a></div>
 <div class="dealer-item fill"><a href="jimagic.html"><img src="../jijlogo.webp" alt="JI Magic &amp; Entertainment" class="dealer-img"></a></div>

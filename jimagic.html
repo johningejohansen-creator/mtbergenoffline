@@ -349,7 +349,7 @@ h1{
     <h1>John Inge Johansen</h1>
     <p class="tagline">Humor og sånn</p>
 
-    <a class="bod-link" href="https://secondhand-production-9c32.up.railway.app/" target="_blank" rel="noopener">
+    <a class="bod-link" id="bodLink" href="https://secondhand-production-9c32.up.railway.app/" target="_blank" rel="noopener">
       <strong>Tilgang til digital bod</strong>
       <span>Passord: MT2026</span>
     </a>
@@ -406,6 +406,17 @@ h1{
   </footer>
 
 </div>
+
+
+<script>
+(function(){
+  var lenke = document.getElementById("bodLink");
+  if (!lenke) return;
+  lenke.addEventListener("click", function(){
+    if (navigator.clipboard) navigator.clipboard.writeText("MT2026").catch(function(){});
+  });
+})();
+</script>
 
 </body>
 </html>

@@ -57,17 +57,32 @@ er Rune Aanesens gamle glitterbokser &ndash; og Geirinis overskuddsmateriale.
 </p>
 
 <div class="cta-wrap">
-<a class="cta" href="https://secondhand-production-9c32.up.railway.app/?password=MT2026" target="_blank" rel="noopener">
+<a class="cta" id="bodLink" href="https://secondhand-production-9c32.up.railway.app/" target="_blank" rel="noopener">
 <strong>G&aring; til den digitale boden</strong>
 <span>Passord: MT2026</span>
 </a>
 </div>
 
-<p class="note">Blir du bedt om passord, er det <b>MT2026</b>.</p>
+<p class="note" id="bodNote">Passordet er <b>MT2026</b>. Trykker du p&aring; knappen, kopieres det automatisk s&aring; du bare kan lime det inn.</p>
 
 <a class="back" href="index.html#Dealers">Tilbake til Magiske Timer</a>
 
 </div>
+
+
+<script>
+(function(){
+  var lenke = document.getElementById("bodLink");
+  var notis = document.getElementById("bodNote");
+  if (!lenke) return;
+  lenke.addEventListener("click", function(){
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText("MT2026").then(function(){
+      if (notis) notis.innerHTML = "Passordet <b>MT2026</b> er kopiert \u2013 lim det inn i feltet.";
+    }).catch(function(){});
+  });
+})();
+</script>
 
 </body>
 </html>

@@ -383,6 +383,17 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
 .dealer-hours span{display:block;font-weight:700;font-size:1rem;line-height:1.7}
 .dealer-hours-note{text-align:center;margin:0 auto 34px;font-size:.92rem;opacity:.8}
 @media (max-width:700px){.dealer-hours{grid-template-columns:1fr;gap:14px}}
+
+/* --- Matstafett: restauranter og tryllekunstnere --- */
+.mat-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:16px 0 18px;max-width:680px}
+.mat-card{text-align:center}
+.mat-plate{background:#e2e8f0;border:1px solid var(--border);border-radius:14px;height:98px;padding:14px;display:flex;align-items:center;justify-content:center}
+.mat-plate img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
+.mat-sted{margin-top:12px;font-weight:900;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:.85}
+.mat-person{margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.mat-person img{display:block;width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid var(--border)}
+.mat-person b{font-weight:900;font-size:.88rem}
+@media (max-width:700px){.mat-row{grid-template-columns:1fr;gap:26px}.mat-plate{height:120px}}
 </style>
 </head>
  
@@ -729,7 +740,35 @@ Se hvem som kommer
 <div class="pg-content">
 <span class="pg-flag">Kveldens h&oslash;ydepunkt</span>
 <h4>Matstafett &amp; tablehopping</h4>
-<p>Closeupshow p&aring; tre steder. Alle deltakere f&aring;r med seg tre closeup-show og en tre retters middag.</p>
+<p>Vi deler oss i tre grupper som g&aring;r p&aring; rundgang mellom tre restauranter i sentrum &mdash;
+forrett ett sted, hovedrett det neste og dessert til slutt. Alle deltakere f&aring;r med seg
+tre closeup-show og en treretters middag.</p>
+<div class="mat-row">
+<div class="mat-card">
+<div class="mat-plate"><img src="web/logo-opera.webp" alt="Caf&eacute; Opera" loading="lazy" decoding="async"></div>
+<div class="mat-sted">Caf&eacute; Opera</div>
+<div class="mat-person">
+<picture><source srcset="web/mat-pedro.webp" type="image/webp"><img src="web/mat-pedro.jpg" width="400" height="400" alt="Pedro Dias" loading="lazy" decoding="async"></picture>
+<b>Pedro Dias</b>
+</div>
+</div>
+<div class="mat-card">
+<div class="mat-plate"><img src="web/logo-wesselstuen.webp" alt="Wesselstuen" loading="lazy" decoding="async"></div>
+<div class="mat-sted">Wesselstuen</div>
+<div class="mat-person">
+<picture><source srcset="web/mat-noel.webp" type="image/webp"><img src="web/mat-noel.jpg" width="400" height="400" alt="Noel Gullerud" loading="lazy" decoding="async"></picture>
+<b>Noel Gullerud</b>
+</div>
+</div>
+<div class="mat-card">
+<div class="mat-plate"><img src="web/logo-mm.webp" alt="MM Bergen" loading="lazy" decoding="async"></div>
+<div class="mat-sted">MM Bergen</div>
+<div class="mat-person">
+<picture><source srcset="web/mat-harald.webp" type="image/webp"><img src="web/mat-harald.jpg" width="400" height="400" alt="Harald Olsen" loading="lazy" decoding="async"></picture>
+<b>Harald Olsen</b>
+</div>
+</div>
+</div>
 <span class="pg-venue">&#128205; Tre steder i byen</span>
 </div>
 </div>

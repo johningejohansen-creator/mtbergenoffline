@@ -394,6 +394,11 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
 .mat-person img{display:block;width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid var(--border)}
 .mat-person b{font-weight:900;font-size:.88rem}
 @media (max-width:700px){.mat-row{grid-template-columns:1fr;gap:26px}.mat-plate{height:120px}}
+
+.btn-reg[disabled]{opacity:.42;cursor:not-allowed;box-shadow:none;filter:grayscale(.3)}
+.btn-reg[disabled]:hover{transform:none}
+.siste-liten{text-align:center;max-width:760px;margin:0 auto 30px;font-size:1.05rem;font-weight:700}
+.siste-liten a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,175,55,.45);white-space:nowrap}
 </style>
 </head>
  
@@ -477,6 +482,21 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
 <div class="poster-hint">Trykk p&aring; en plakat for &aring; se den i stor versjon</div>
 
 </section>
+
+<section id="Praktisk"><h2>Praktisk Informasjon</h2>
+
+<div class="practical-grid" style="max-width:560px;margin:0 auto;">
+
+<div class="practical-item">
+<h3>V&aelig;ret i Bergen</h3>
+<div class="weather-container">
+<iframe src="https://www.yr.no/nb/innhold/1-92416/card.html" width="100%" height="430" frameborder="0" scrolling="no"></iframe>
+</div>
+</div>
+
+</div>
+</section>
+
 </div>
 
 
@@ -556,30 +576,8 @@ v&aelig;rt med i spillet. De siste &aring;rene har den blitt hovedfokuset.
 </section>
  
 <section style="margin-top:40px;">
-<div style="max-width:900px;margin:0 auto;background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.3);border-radius:20px;padding:30px;backdrop-filter:blur(10px);box-shadow:0 20px 40px rgba(0,0,0,0.3);">
- 
-<h3 style="color:#d4af37;text-transform:uppercase;font-weight:900;text-align:center;margin-top:0;font-size:1.8rem;">
-Oppsummert
-</h3>
- 
-<p>
-<strong>🏆 Junior-NM:</strong> Det er plass til flere juniorer! Konkurransen har både scene- og close-up-klasse. Regelverket sikrer at poenggivingen ikke deler ut en førstepris med mindre akten når opp til det nivået.
-</p>
- 
-<p>
-<strong>🎩 Klubbmesterskap:</strong> Klubbmesterskapet utfordrer alle lokalavdelingene – vi må klare å få minst én fra hver: Nord, Midt, Sør, Vest og Oslo. En lokal jury med tre bergensere dømmer. Hver deltaker – inntil ti stykker – velger blant klassiske trylletriks, og alt utstyret er tilgjengelig på teateret. Deltakerne får ti minutter felles til forberedelse, og framføringen vil bli avbrutt av bergenske elementer. Uhøytidelig, gøy – eller tidig, som vi sier i Bergen – og utfordrende.
-</p>
- 
-<p>
-<strong>🛍️ Dealere &amp; bruktmarked:</strong> Pegani kommer til å ha fast område på Magic Hotel. JI Magic selger brukte trylle-DVD-er og annen second hand. Har du noe du vil selge? Ta det med.
-</p>
- 
-<p>
-<strong>🎤 Seminarer:</strong> Tre er lansert nå – ett til kommer. Seminaristene hentes fra egne rekker.
-</p>
- 
-<div style="text-align:center;margin-top:35px;">
-<a href="hvemkommer.html" 
+<div style="text-align:center;">
+<a href="hvemkommer.html"
 style="
 display:inline-block;
 background:var(--gold);
@@ -596,11 +594,8 @@ transition:0.3s;
 Se hvem som kommer
 </a>
 </div>
- 
- 
-</div>
 </section>
- 
+
 <main class="content-wrapper">
  
 <section>
@@ -666,44 +661,6 @@ Se hvem som kommer
  
 
  
- 
-<section id="Praktisk"><h2>Praktisk Informasjon</h2>
- 
-<div class="practical-grid">
- 
-<div class="practical-item">
-    <h3>Sted & Hotell</h3>
-    <p>Vi har avtale med Magic Hotel Kløverhuset. Bestill via knappen nedenfor. Hotellet vil være vårt samlingspunkt på kveldene, med mulighet for tablemagic sammen med juniorer uten at vi forstyrres av andre. Rom gjøres opp ved innsjekk.</p>
-    
-    <p><strong>Dobbeltrom kr. 1990 pr natt. <br> Enkeltrom kr. 1790 pr natt.</strong></p>
-   
-    <a href="https://www.radissonhotels.com/en-us/hotels/radisson-individuals-kloverhuset-bergen" target="_blank">
-     <img src="magichotel.jpg" alt="Magic Hotel" class="hotel-modal-logo">
-</a>
-    <button class="btn-reg" id="openHotelBtn" type="button">Bestill hotellrom</button>
-</div>
- 
-<div class="practical-item">
-<h3>Reise</h3>
- 
-<p><strong>Trondheim → Bergen:</strong> Fly er eneste realistiske alternativ – direktefly med Widerøe, SAS eller Norwegian tar ca. 1 time, og med avgang senest rundt 13:00–13:30 rekker du Bergen innen 15:30. Det finnes ingen direkte tog eller buss.</p>
- 
-<p><strong>Stavanger → Bergen:</strong> To gode alternativ. Fly er raskest, kun 40 min, og du kan reise så sent som 13:45. Kystbussen, NOR-WAY NW400, kjører også direktebuss med reisetid ned mot 4 timer og 20 minutter på «Strake vegen»-avganger, så med avgang rundt 11:00–11:30 bør du rekke det.</p>
- 
-<p><strong>Oslo → Bergen:</strong> Tre valg. Fly tar ca. 55 min fra Gardermoen, og avgang rundt 13:00–13:15 er trygt. Bergensbanen tar ca. 7 timer, noe som krever tidlig morgenavgang fra Oslo S, rundt 07:55–08:05 – til gjengjeld er det en spektakulær reise. Haukeliekspressen, NW180, har reisetid mellom Oslo og Bergen på om lag 8 timer og 30 minutter, med nødvendig bussbytte på Seljestad, og krever avgang tidlig morgen.</p>
- 
-<p>For eksakte avgangstider anbefaler vi å sjekke vy.no, nor-way.no og flyselskapenes egne nettsider.</p>
-</div>
- 
-<div class="practical-item">
-<h3>Været i Bergen</h3>
-<div class="weather-container">
-<iframe src="https://www.yr.no/nb/innhold/1-92416/card.html" width="100%" height="430" frameborder="0" scrolling="no"></iframe>
-</div>
-</div>
- 
-</div>
-</section>
  
 <section id="Program">
 <h2>Program</h2>
@@ -1045,14 +1002,16 @@ honorarer, om du gj&oslash;r noen ting p&aring; riktig m&aring;te.</p>
 </section>
  
 <section id="Paamelding">
-<h2>Påmelding er åpen</h2>
+<h2>Påmelding</h2>
 <h3 style="text-align:center; max-width:900px; margin:0 auto 25px;">Du får en bekreftelse når skjemaet er sendt inn. Faktura kommer fra MCN i løpet av juni for earlybirds og junior, fortløpende for andre.</h3>
  
+<p class="siste-liten">Siste-liten-p&aring;meldinger kan gj&oslash;res direkte til telefon <a href="tel:+4797147336">971 47 336</a>.</p>
+
 <div class="pricing-grid">
 <div class="price-card" style="opacity:0.6;"><h4>Early Bird Senior</h4><p>Early bird er avsluttet</p><p>Takk til alle 42 som meldte seg på</p><div class="amount">2095,-</div></div>
-<div class="price-card"><h4>Senior</h4><p>Fullpris etter 1. juni</p><p>Marker i skjema om du har med deg ledsager</p><div class="amount">2495,-</div><button class="btn-reg ticket-btn" type="button" data-ticket="Senior">Simsalabim</button></div>
-<div class="price-card"><h4>Junior</h4><p>For medlemmer under 18 år</p><p>Marker i skjema om du ønsker å delta i NM</p><div class="amount">1495,-</div><button class="btn-reg ticket-btn" type="button" data-ticket="Junior">Simsalabim</button></div>
-<div class="price-card"><h4>Ledsager for junior</h4><p>For ikke-tryllende foresatte</p><div class="amount">0,-</div><button class="btn-reg ticket-btn" type="button" data-ticket="Ledsager">Simsalabim</button></div>
+<div class="price-card"><h4>Senior</h4><p>Fullpris etter 1. juni</p><p>Marker i skjema om du har med deg ledsager</p><div class="amount">2495,-</div><button class="btn-reg ticket-btn" type="button" disabled data-ticket="Senior">Simsalabim</button></div>
+<div class="price-card"><h4>Junior</h4><p>For medlemmer under 18 år</p><p>Marker i skjema om du ønsker å delta i NM</p><div class="amount">1495,-</div><button class="btn-reg ticket-btn" type="button" disabled data-ticket="Junior">Simsalabim</button></div>
+<div class="price-card"><h4>Ledsager for junior</h4><p>For ikke-tryllende foresatte</p><div class="amount">0,-</div><button class="btn-reg ticket-btn" type="button" disabled data-ticket="Ledsager">Simsalabim</button></div>
 </div>
 </section>
  
@@ -1076,37 +1035,6 @@ honorarer, om du gj&oslash;r noen ting p&aring; riktig m&aring;te.</p>
 <div id="status" class="status-message"></div>
 <div class="modal-note">Etter vellykket innsending sendes du videre til bekreftelsessiden</div>
 </div>
-</div>
- 
- 
-<div id="hotelModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="closeHotelModal">&times;</span>
-        <h3 id="hotelModalTitle">Bestill hotellrom</h3>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Vi samler inn og melder til hotell som gruppe. Skal du ha bare en natt, så må du melde fra om det på epost etter at du har mottatt bekreftelse. </p>
- 
-        <form id="hotelBookingForm">
-    <input type="hidden" name="skjematype" value="hotell">  
-            <input type="text" name="navn" required placeholder="Fullt navn">
-            <input type="email" name="email" required placeholder="E-postadresse">
-            <input type="tel" name="telefon" required placeholder="Telefonnummer">
-            
-            <div style="margin: 20px 0; text-align: left;">
-                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: var(--gold);">Type rom:</label>
-                <div class="vote-option" style="background: rgba(255,255,255,0.05); margin-bottom: 10px;">
-                    <input type="radio" id="dobbelt" name="romtype" value="Dobbeltrom" checked>
-                    <label for="dobbelt" style="margin-left: 10px;">Dobbeltrom (1990,- pr natt)</label>
-                </div>
-                <div class="vote-option" style="background: rgba(255,255,255,0.05);">
-                    <input type="radio" id="enkelt" name="romtype" value="Enkeltrom">
-                    <label for="enkelt" style="margin-left: 10px;">Enkeltrom (1790,- pr natt)</label>
-                </div>
-            </div>
- 
-            <button type="submit" class="btn-reg">Send bestilling</button>
-        </form>
-        <div id="hotelStatus" class="status-message"></div>
-    </div>
 </div>
  
  

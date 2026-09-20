@@ -419,6 +419,25 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
 .trikk-grupper .rod{background:#d9363e}
 .trikk-grupper .bla{background:#3b82f6}
 .trikk-grupper b{color:var(--gold);font-weight:900}
+
+/* --- Bildekarusell --- */
+header.karusell{position:relative;display:block;min-height:0;height:min(80vh,860px);padding:0;background:#03060e;overflow:hidden;text-align:center;border-bottom:5px solid var(--gold)}
+.karusell-spor,.karusell .slide{position:absolute;inset:0}
+.karusell .slide{opacity:0;transition:opacity .9s ease}
+.karusell .slide.aktiv{opacity:1}
+.karusell .slide img{position:absolute;inset:0;width:100%;height:100%}
+.karusell .slide img.bak{object-fit:cover;filter:blur(30px) brightness(.42);transform:scale(1.15)}
+.karusell .slide img.for{object-fit:contain}
+.karusell-tekst{position:absolute;left:0;right:0;bottom:0;padding:120px 20px 34px;background:linear-gradient(to top,rgba(15,23,42,.95),rgba(15,23,42,.6) 55%,transparent);z-index:2}
+.karusell .hero-location{font-size:clamp(.95rem,2.2vw,1.45rem);letter-spacing:3px;margin-bottom:6px}
+.karusell .hero-title{font-size:clamp(2.1rem,6vw,4.8rem);letter-spacing:-1px;margin:0 0 20px}
+.karusell-knapp{display:inline-block;background:var(--gold);color:var(--dark);font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:14px 28px;border-radius:10px;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.karusell-knapp:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(212,175,55,.35)}
+.karusell-pil{position:absolute;top:42%;z-index:3;background:rgba(15,23,42,.55);color:var(--light);border:1px solid var(--border);width:52px;height:52px;border-radius:50%;font-size:2rem;line-height:1;cursor:pointer;backdrop-filter:blur(6px)}
+.karusell-pil:hover{background:rgba(15,23,42,.85);color:var(--gold)}
+.karusell-pil.forrige{left:18px}.karusell-pil.neste{right:18px}
+.karusell-teller{position:absolute;top:14px;right:18px;z-index:3;font-size:.75rem;font-weight:800;letter-spacing:2px;background:rgba(15,23,42,.6);padding:5px 10px;border-radius:20px}
+@media (max-width:700px){header.karusell{height:72vh}.karusell-pil{width:42px;height:42px;font-size:1.6rem;top:38%}.karusell-pil.forrige{left:8px}.karusell-pil.neste{right:8px}}
 </style>
 </head>
  
@@ -426,82 +445,29 @@ a.pg-venue:hover,a.pg-venue:focus-visible{background:rgba(212,175,55,.2);border-
  
 <nav>
 <a href="#">Hjem</a>
-<a href="#Show">Show</a>
+<a href="galleri.html">Galleri</a>
 <a href="#Frodo">Frodo</a>
 <a href="#Artister">Artister</a>
 <a href="#Program">Program</a>
 <a href="#Praktisk">Praktisk</a>
 <a href="#Dealers">Dealere</a>
 <a href="#Paamelding">Påmelding</a>
+<a href="mt-arkiv.html">Arkiv</a>
 </nav>
  
-<header>
-<div class="hero-location">BERGEN 18.–20. SEPT 2026</div>
+<header class="karusell" aria-roledescription="karusell" aria-label="Bilder fra Magiske Timer 2026">
+<div class="karusell-spor" id="karusellSpor"></div>
+<div class="karusell-tekst">
+<div class="hero-location">Bergen 18.&ndash;20. sept 2026</div>
 <h1 class="hero-title">Bergen blir magisk</h1>
-<div id="countdown-container">
-<div class="timer">
-<div class="time-box"><span id="days">00</span><span>Dager</span></div>
-<div class="time-box"><span id="hours">00</span><span>Timer</span></div>
-<div class="time-box"><span id="minutes">00</span><span>Min</span></div>
-<div class="time-box"><span id="seconds">00</span><span>Sek</span></div>
+<a class="karusell-knapp" href="galleri.html">Se alle bildene</a>
 </div>
-</div>
+<button class="karusell-pil forrige" id="karusellForrige" type="button" aria-label="Forrige bilde">&lsaquo;</button>
+<button class="karusell-pil neste" id="karusellNeste" type="button" aria-label="Neste bilde">&rsaquo;</button>
+<div class="karusell-teller" id="karusellTeller" aria-live="off"></div>
 </header>
 
 <div class="content-wrapper" style="padding-bottom:0;">
-<section class="shows-section" id="Show">
-
-<div class="show-row">
-<a class="show-poster" href="web/plakat-boje-stor.jpg" target="_blank" rel="noopener">
-<picture>
-<source srcset="web/plakat-boje.webp" type="image/webp">
-<img src="web/plakat-boje.jpg" width="1200" height="1680" alt="Plakat: Boje Hoseth &ndash; magisk crazy show p&aring; Bergen Camping l&oslash;rdag 19. september 2026 kl 14:30" loading="lazy" decoding="async">
-</picture>
-</a>
-<div class="show-text">
-<div class="show-kicker">Magisk crazy show</div>
-<h3>Boje Hoseth</h3>
-<div class="show-meta">L&oslash;rdag 19. september 2026 &middot; kl. 14:30 &middot; Bergen Camping</div>
-<p>Boje Hoseth er en av Norges mest crazy tryllekunstnere. N&aring; kan du oppleve han i et formiddagsshow p&aring; Bergen Camping. Glem alt du tror du vet om magi &ndash; han overrasker deg og f&aring;r deg til &aring; trekke p&aring; smileb&aring;ndet, bryte ut i spontan mistro og gir deg lyst til &aring; virkelig st&aring; p&aring; stolen for &aring; gi applaus.</p>
-<a class="ticket-link" href="https://www.letsreg.com/no/register/bojescrazymagicshow_31082026120410" target="_blank" rel="noopener">Bestill billetter her!</a>
-</div>
-</div>
-
-<div class="show-row">
-<a class="show-poster" href="web/plakat-dinner-stor.jpg" target="_blank" rel="noopener">
-<picture>
-<source srcset="web/plakat-dinner.webp" type="image/webp">
-<img src="web/plakat-dinner.jpg" width="1200" height="1680" alt="Plakat: Dinnershow p&aring; Sj&oslash;scenen l&oslash;rdag 19. september 2026 kl 20:00" loading="lazy" decoding="async">
-</picture>
-</a>
-<div class="show-text">
-<div class="show-kicker">&Eacute;n magisk kveld med mat</div>
-<h3>Dinnershow</h3>
-<div class="show-meta">L&oslash;rdag 19. september 2026 &middot; kl. 20:00 &middot; Sj&oslash;scenen, Holbergskaien i V&aring;gen</div>
-<p>L&oslash;rdag kveld legger &laquo;Sj&oslash;scenen&raquo; til ved Holbergskaien i V&aring;gen. Et kveldsshow med internasjonalt tilsnitt &ndash; og en omfangsrik tapasbuffet er inkludert i prisen. Captain Frodo er for f&oslash;rste gang p&aring; lenge tilbake i Bergen. Han er en sv&aelig;rt erfaren tryllekunstner som har turnert over hele verden, med stopp i Las Vegas, hos Cirque du Soleil og i Australia. Rune Carlsen er kanskje Norges mest meritterte tryllekunstner og har hatt flere show p&aring; Magic Castle i Los Angeles &ndash; du har kanskje sett han i Norske og Svenske talenter, der gullknappen ble brukt for ham. Flere andre artister st&aring;r ogs&aring; p&aring; scenen i dette helt spesielle arrangementet.</p>
-<a class="ticket-link" href="https://www.letsreg.com/no/register/enmagiskaftendinnershow_30082026042838" target="_blank" rel="noopener">Bestill billetter her!</a>
-</div>
-</div>
-
-<div class="show-row">
-<a class="show-poster" href="web/plakat-junior-stor.jpg" target="_blank" rel="noopener">
-<picture>
-<source srcset="web/plakat-junior.webp" type="image/webp">
-<img src="web/plakat-junior.jpg" width="1200" height="1680" alt="Plakat: Familieshow med junior-NM p&aring; Cornerteateret s&oslash;ndag 20. september 2026 kl 12:00" loading="lazy" decoding="async">
-</picture>
-</a>
-<div class="show-text">
-<div class="show-kicker">Trylleforestilling med konkurranse</div>
-<h3>Familieforestilling</h3>
-<div class="show-meta">S&oslash;ndag 20. september 2026 &middot; kl. 12:00 &middot; Cornerteateret, M&oslash;hlenpris</div>
-<p>Cornerteateret p&aring; M&oslash;hlenpris er arena for en helt spesiell magisk familieforestilling som inkluderer junior-NM med tre deltakere. Egne familiepriser. La barna dine bli inspirert til &aring; starte en helt ny hobby, eller bare kom og la deg underholde.</p>
-<a class="ticket-link" href="https://www.letsreg.com/no/register/trylleshow_31082026014307" target="_blank" rel="noopener">Bestill billetter her!</a>
-</div>
-</div>
-
-<div class="poster-hint">Trykk p&aring; en plakat for &aring; se den i stor versjon</div>
-
-</section>
 
 <section id="Praktisk"><h2>Praktisk Informasjon</h2>
 
@@ -1244,22 +1210,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
  
-    const countDownDate = new Date("Sep 18, 2026 17:00:00").getTime();
- 
-    setInterval(function () {
-        const now = new Date().getTime();
-        const distance = countDownDate - now;
- 
-        const days = document.getElementById("days");
-        const hours = document.getElementById("hours");
-        const minutes = document.getElementById("minutes");
-        const seconds = document.getElementById("seconds");
- 
-        if (days) days.innerText = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24))).toString().padStart(2, "0");
-        if (hours) hours.innerText = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).toString().padStart(2, "0");
-        if (minutes) minutes.innerText = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).toString().padStart(2, "0");
-        if (seconds) seconds.innerText = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000)).toString().padStart(2, "0");
-    }, 1000);
  
     if (signupForm) {
         signupForm.addEventListener("submit", async function (e) {
@@ -1293,5 +1243,37 @@ document.addEventListener("DOMContentLoaded", function () {
  
 
  
+
+<script>
+(function(){
+  var BILDER = ["mt2026-01", "mt2026-02", "mt2026-03", "mt2026-04", "mt2026-05", "mt2026-06", "mt2026-07", "mt2026-08", "mt2026-09", "mt2026-10", "mt2026-11", "mt2026-12", "mt2026-13", "mt2026-14", "mt2026-15", "mt2026-16", "mt2026-17", "mt2026-18", "mt2026-19", "mt2026-20", "mt2026-21", "mt2026-22", "mt2026-23", "mt2026-24", "mt2026-25", "mt2026-26", "mt2026-27", "mt2026-28", "mt2026-29", "mt2026-30", "mt2026-31", "mt2026-32"];
+  var spor = document.getElementById("karusellSpor");
+  if (!spor) return;
+  var teller = document.getElementById("karusellTeller");
+  var slides = BILDER.map(function(n){
+    var d = document.createElement("div"); d.className = "slide"; d.dataset.src = "galleri/web/" + n + ".webp";
+    spor.appendChild(d); return d;
+  });
+  function last(i){
+    var d = slides[i]; if (d.dataset.lastet) return; d.dataset.lastet = "1";
+    var bak = new Image(); bak.className = "bak"; bak.alt = ""; bak.setAttribute("aria-hidden", "true"); bak.src = d.dataset.src;
+    var fr = new Image(); fr.className = "for"; fr.alt = "Bilde " + (i+1) + " fra Magiske Timer 2026"; fr.src = d.dataset.src;
+    d.appendChild(bak); d.appendChild(fr);
+  }
+  var n = 0, tid = null;
+  function vis(i){
+    n = (i + slides.length) % slides.length;
+    last(n); last((n + 1) % slides.length);
+    slides.forEach(function(s, k){ s.classList.toggle("aktiv", k === n); });
+    if (teller) teller.textContent = (n + 1) + " / " + slides.length;
+  }
+  function start(){ stopp(); tid = setInterval(function(){ vis(n + 1); }, 3000); }
+  function stopp(){ if (tid) { clearInterval(tid); tid = null; } }
+  document.getElementById("karusellForrige").addEventListener("click", function(){ vis(n - 1); start(); });
+  document.getElementById("karusellNeste").addEventListener("click", function(){ vis(n + 1); start(); });
+  document.addEventListener("visibilitychange", function(){ document.hidden ? stopp() : start(); });
+  vis(0); start();
+})();
+</script>
 </body>
 </html>
